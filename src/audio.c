@@ -37,12 +37,15 @@ static void music_finished(void) {
 
 void audio_init(void) {
 	memset(&audio, 0, sizeof(audio));
-	if (Mix_Init(MIX_INIT_MODPLUG | MIX_INIT_OGG) == -1) k2_abort("err_init", "Mix");
+	if (Mix_Init(MIX_INIT_MOD | MIX_INIT_OGG | MIX_INIT_MP3) == -1) k2_abort("err_init", "Mix");
 	if (Mix_OpenAudio(RATE, FORMAT, CHANNELS, CHUNK) == -1) k2_abort("err_audio");
 	Mix_HookMusicFinished(music_finished);
 }
 
 void audio_destroy(void) {
+	// Don't play this;
+	if (audio.next_music) Mix_FreeMusic(audio.next_music);
+	
 	Mix_CloseAudio();
 	while (Mix_Init(0)) {
 		Mix_Quit();

@@ -9,8 +9,10 @@
 #ifndef K2_game_h
 #define K2_game_h
 
+#include <stdint.h>
+
 typedef struct {
-	
+	uint32_t ticks;
 } game_t;
 
 extern game_t game;

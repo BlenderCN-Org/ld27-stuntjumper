@@ -18,6 +18,7 @@ void config_init(void) {
 	memset(&config, 0, sizeof(config));
 	
 	strncat(config.language, "en", 8);
+	config.frame_interval = 1000 / 60;
 
 	k2_l10n_init(&l10n, config.language);
 }

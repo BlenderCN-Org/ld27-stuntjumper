@@ -16,3 +16,6 @@ resources-pkg/*.zip
 K2/K2.xcodeproj/project.xcworkspace/xcuserdata/*
 K2/K2.xcodeproj/xcuserdata/*
 
+# OS X
+*/.DS_Store
+

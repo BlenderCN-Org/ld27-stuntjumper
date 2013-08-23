@@ -10,10 +10,12 @@
 #define K2_config_h
 
 #include <stdbool.h>
+#include <stdint.h>
 
 typedef struct {
-	char	language[8];
-	bool	fullscreen;
+	char		language[8];
+	uint32_t	frame_interval;
+	bool		fullscreen;
 } config_t;
 
 extern config_t config;

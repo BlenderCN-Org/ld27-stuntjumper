@@ -20,7 +20,6 @@
 
 static void quit(void) {
 	LOG_INFO("Shutting down");
-	audio_destroy();
 	while (IMG_Init(0)) {
 		IMG_Quit();
 	}
@@ -34,7 +33,7 @@ int main(int argc, char *argv[])
 	atexit(quit);
 	
 	PHYSFS_init(argv[0]);
-	if (! k2_physfs_set_sane_config(app_name, "zip", false))
+	if (! k2_physfs_set_sane_config(app.name, "zip", false))
 		k2_abort("Couldn't initialize file system");	
 	
 	if (SDL_Init(SDL_INIT_AUDIO | SDL_INIT_VIDEO | SDL_INIT_TIMER) == -1)
@@ -42,14 +41,9 @@ int main(int argc, char *argv[])
 	if (TTF_Init() == -1) k2_abort("err_init", "TTF");
 	if (IMG_Init(IMG_INIT_PNG) == -1) k2_abort("err_init", "IMG");
 	
-	config_init();
-	display_init();
-	audio_init();
-	view_init();
-	game_init();
+	app_init();
+
+	core_loop();
 	
-	audio_play_music("music/minutewaltz.mp3");
-	while (1) {
-		
-	}
+	app_destroy();
 }
