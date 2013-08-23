@@ -1,17 +1,18 @@
 # Object files
 *.o
 
-# Libraries
-*.lib
-*.a
-
-# Shared objects (inc. Windows DLLs)
-*.dll
-*.so
-*.so.*
-*.dylib
-
 # Executables
 *.exe
 *.out
 *.app
+
+# dist
+dist/*
+
+# resources packaged up
+resources-pkg/*.zip
+
+# xcode
+K2/K2.xcodeproj/project.xcworkspace/xcuserdata/*
+K2/K2.xcodeproj/xcuserdata/*
+
