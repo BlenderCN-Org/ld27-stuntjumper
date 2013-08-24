@@ -9,6 +9,8 @@
 #include "k2_log.h"
 #include "k2_gl_debug.h"
 
+#error OOB for this project
+
 #define ECASE(x) case(x): return #x
 
 #ifdef DEBUG_GL

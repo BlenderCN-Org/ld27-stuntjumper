@@ -13,6 +13,7 @@
 #include <stdbool.h>
 
 typedef struct {
+	uint32_t absolute_ticks;
 	uint32_t sdl_tick_offset;
 	uint32_t run_interval;
 	uint32_t pause_interval;

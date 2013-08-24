@@ -2,6 +2,7 @@
 	"common" : {
 		"err_title"	:				"Fatal Error",
 		"err_init" :				"Could not initialize the application. (%s)",
+		"err_texture" :				"Could not load required texture. (%s)",
 		
 		"_last" :					""
 	}

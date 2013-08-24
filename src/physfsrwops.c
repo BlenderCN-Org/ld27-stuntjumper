@@ -96,6 +96,15 @@ static int64_t physfsrwops_seek(SDL_RWops *rw, int64_t offset, int whence)
     return(pos);
 } /* physfsrwops_seek */
 
+static int64_t physfsrwops_size(SDL_RWops *rw)
+{
+	PHYSFS_File *handle = (PHYSFS_File *) rw->hidden.unknown.data1;
+	PHYSFS_sint64 rc = PHYSFS_fileLength(handle);
+	if (rc < 0) {
+		SDL_SetError("Couldn't get length of file.");
+	}
+	return rc;
+}
 
 static size_t physfsrwops_read(SDL_RWops *rw, void *ptr, size_t size, size_t maxnum)
 {
@@ -147,6 +156,7 @@ static SDL_RWops *create_rwops(PHYSFS_File *handle)
         retval = SDL_AllocRW();
         if (retval != NULL)
         {
+			retval->size  = physfsrwops_size;
             retval->seek  = physfsrwops_seek;
             retval->read  = physfsrwops_read;
             retval->write = physfsrwops_write;

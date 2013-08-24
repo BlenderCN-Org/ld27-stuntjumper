@@ -9,11 +9,13 @@
 #include "window.h"
 #include "app.h"
 
-static event_handler_t unpause_handler = 0;
+static event_handler_t unpause_mouse_handler = 0;
+static event_handler_t unpause_key_handler = 0;
 
 static bool on_unpause(SDL_Event *event) {
-	timer.paused = false;
-	event_remove_handler(&unpause_handler);
+	timer_run();
+	event_remove_handler(&unpause_mouse_handler);
+	event_remove_handler(&unpause_key_handler);
 	return true;
 }
 
@@ -28,8 +30,9 @@ static bool on_window(SDL_Event *event) {
 			break;
 	}
 	if (pause) {
-		timer.paused = true;
-		if (! unpause_handler) event_add_handler(&unpause_handler, on_unpause, SDL_MOUSEBUTTONUP | SDL_KEYUP);
+		timer_pause();
+		if (! unpause_mouse_handler) event_add_handler(&unpause_mouse_handler, on_unpause, SDL_MOUSEBUTTONUP);
+		if (! unpause_key_handler) event_add_handler(&unpause_key_handler, on_unpause, SDL_KEYUP);
 		return true;
 	}
 	return false;

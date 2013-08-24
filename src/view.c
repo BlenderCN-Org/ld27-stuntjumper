@@ -32,12 +32,17 @@ static void default_view_render(void) {
 typedef struct {
 	view_t views[VIEW_STACK_MAX];
 	size_t current;
+	size_t render_ptr;
 } view_stack_t;
 
 view_stack_t stack;
 
 static view_t *current_view(void) {
 	return &stack.views[stack.current];
+}
+
+static view_t *render_view(void) {
+	return &stack.views[stack.render_ptr];
 }
 
 void view_init(void) {
@@ -51,10 +56,19 @@ void view_init(void) {
 }
 
 void view_push(view_t *new_view) {
-	current_view()->deactivate();
 	++stack.current;
 	stack.views[stack.current] = *new_view;
 	current_view()->activate();
+}
+
+void view_pop(void) {
+	if (stack.current == 0) {
+		LOG_WARN("Not popping last view");
+		return;
+	}
+	
+	current_view()->deactivate();
+	--stack.current;
 }
 
 void view_update(void) {
@@ -62,6 +76,17 @@ void view_update(void) {
 }
 
 void view_render(void) {
+	stack.render_ptr = stack.current;
 	current_view()->render();
 	SDL_RenderPresent(display.renderer);
+}
+
+void view_render_parent(void) {
+	if (stack.render_ptr == 0) {
+		LOG_WARN("Can't render parent of last view");
+		return;
+	}
+	
+	--stack.render_ptr;
+	render_view()->render();
 }

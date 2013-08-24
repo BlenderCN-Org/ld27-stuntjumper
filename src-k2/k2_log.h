@@ -120,15 +120,15 @@
 #endif
 
 #if (K2_LOG_LEVEL < K2_LOG_LEVEL_OFF)
-#define LOG_MAX 16384
-extern char __k2_log_output[LOG_MAX];
+#define K2_LOG_MAX 16384
+extern char ___k2_log_output[K2_LOG_MAX];
 #	ifdef _WIN32
 /* MinGW points to _iob which the IDEs don't like */
 #		define k2_log(stream, color, level, file, func, line, ...) \
-printf("[%s]\t %s %s:%d %s\n", level, k2_basename(file), func, line, (snprintf(__k2_log_output, LOG_MAX, __VA_ARGS__), __k2_log_output)); fflush(stdout)
+do { printf("[%s]\t %s %s:%d %s\n", level, k2_basename(file), func, line, (snprintf(___k2_log_output, K2_LOG_MAX, __VA_ARGS__), ___k2_log_output)); fflush(stdout); } while (0)
 #	else
 #		define k2_log(stream, color, level, file, func, line, ...) \
-fprintf(stream, "[%s%s%s]\t %s %s:%d %s\n", color, level, K2_COLOR_txtrst, basename(file), func, line, (snprintf(__k2_log_output, LOG_MAX, __VA_ARGS__), __k2_log_output)); fflush(stream)
+do { fprintf(stream, "[%s%s%s]\t %s %s:%d %s\n", color, level, K2_COLOR_txtrst, basename(file), func, line, (snprintf(___k2_log_output, K2_LOG_MAX, __VA_ARGS__), ___k2_log_output)); fflush(stream); } while (0)
 #	endif
 #else
 #define k2_log(s, c, lv, f, fn, ln, ...)

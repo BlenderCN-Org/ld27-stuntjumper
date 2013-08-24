@@ -13,7 +13,7 @@
 
 #define MAX_HANDLERS 256
 typedef struct {
-	uint32_t	mask;
+	uint32_t	type;
 	event_func	*func;
 } event_handler_record_t;
 
@@ -28,10 +28,10 @@ void event_init(void) {
 	memset(&handlers, 0, sizeof(handlers));
 }
 
-void event_add_handler(event_handler_t *handler, event_func func, uint32_t event_mask) {
+void event_add_handler(event_handler_t *handler, event_func func, uint32_t event_type) {
 	event_handler_record_t *rec = &handlers.records[handlers.handler_count];
 	rec->func = func;
-	rec->mask = event_mask;
+	rec->type = event_type;
 	event_handler_t result = (event_handler_t)handlers.handler_count;
 	handlers.handler_count = (handlers.handler_count + 1) % MAX_HANDLERS;
 	
@@ -48,7 +48,7 @@ bool event_remove_handler(event_handler_t *handler) {
 void event_handle(SDL_Event *event) {
 	for (size_t i = 0; i < MAX_HANDLERS; ++i) {
 		if (handlers.records[i].func) {
-			if (handlers.records[i].mask & event->type) {
+			if (handlers.records[i].type == event->type) {
 				if (handlers.records[i].func(event)) {
 					return;
 				}

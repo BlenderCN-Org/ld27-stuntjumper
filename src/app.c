@@ -14,9 +14,21 @@ app_t app = {
 };
 
 static bool quit_request(SDL_Event *event) {
-	app.exit = true;
-	SDL_FlushEvents(SDL_FIRSTEVENT, SDL_LASTEVENT);
-	return true;
+	bool exit = false;
+	switch (event->type) {
+		case SDL_QUIT:
+			exit = true;
+			break;
+		case SDL_WINDOWEVENT:
+			exit = (event->window.event == SDL_WINDOWEVENT_CLOSE);
+			break;
+	}
+	
+	if (exit) {
+		app.exit = true;
+		SDL_FlushEvents(SDL_FIRSTEVENT, SDL_LASTEVENT);
+	}
+	return exit;
 }
 
 void app_init(void) {
@@ -27,12 +39,14 @@ void app_init(void) {
 	audio_init();
 	process_init();
 	view_init();
+	sprites_init();
 	timer_init(&game.ticks, config.frame_interval, 10 * config.frame_interval);
 	game_init();
 	
 	event_add_handler(NULL, quit_request, SDL_QUIT);
+	event_add_handler(NULL, quit_request, SDL_WINDOWEVENT);
 	
-	audio_play_music("music/haunting torgo theme.mp3");
+	audio_play_music("music/d82a.ogg");
 }
 
 void app_destroy() {
@@ -45,4 +59,5 @@ void app_destroy() {
 //	view_destroy();
 //	timer_destroy();
 //	game_destroy();
+	sprites_destroy();
 }

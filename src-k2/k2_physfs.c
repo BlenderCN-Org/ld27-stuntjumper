@@ -25,7 +25,7 @@
 #endif
 
 /* Split out to avoid stack allocation in a loop. */
-static void setSaneCfgAddPath(const char *i, const size_t l, const char *dirsep,
+static void add_config_path(const char *i, const size_t l, const char *dirsep,
                               bool archives_first)
 {
     const char *d = PHYSFS_getRealDir(i);
@@ -34,6 +34,7 @@ static void setSaneCfgAddPath(const char *i, const size_t l, const char *dirsep,
     if (str != NULL)
     {
         sprintf(str, "%s%s%s", d, dirsep, i);
+		LOG_DEBUG("Mounting %s", str);
 		PHYSFS_mount(str, NULL, !archives_first);
         free(str);
     } /* if */
@@ -89,7 +90,7 @@ int k2_physfs_set_sane_config(const char *app_name,
             {
                 ext = (*i) + (l - extlen);
                 if (strnicmp(ext, archive_extension, strlen(ext)) == 0)
-                    setSaneCfgAddPath(*i, l, dirsep, archives_first);
+                    add_config_path(*i, l, dirsep, archives_first);
             } /* if */
         } /* for */
 		

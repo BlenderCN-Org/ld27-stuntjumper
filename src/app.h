@@ -16,9 +16,14 @@
 #include "event.h"
 #include "game.h"
 #include "process.h"
+#include "sprites.h"
 #include "timer.h"
 #include "view.h"
 #include "window.h"
+
+#include "util.h"
+#include "physfsrwops.h"
+#include "k2_l10n.h"
 
 typedef struct {
 	const char *name;

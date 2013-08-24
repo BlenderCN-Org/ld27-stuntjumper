@@ -8,4 +8,6 @@
 
 #include "k2_log.h"
 
-char __k2_log_output[LOG_MAX];
+#if (K2_LOG_LEVEL < K2_LOG_LEVEL_OFF)
+char ___k2_log_output[K2_LOG_MAX];
+#endif

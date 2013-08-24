@@ -11,8 +11,8 @@
 
 #include <SDL2/SDL.h>
 
-#define REFERENCE_WIDTH 1280
-#define REFERENCE_HEIGHT 720
+#define REFERENCE_WIDTH		128
+#define REFERENCE_HEIGHT	256
 
 typedef struct {
 	SDL_Window *window;

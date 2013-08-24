@@ -22,8 +22,12 @@ typedef struct {
 } view_t;
 
 void view_init(void);
-void view_set(view_t *view);
+void view_push(view_t *view);
+void view_pop(void);
 void view_update(void);
 void view_render(void);
+
+// Can be called hierarchically by views that overlay parent views.
+void view_render_parent(void);
 
 #endif

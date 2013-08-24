@@ -7,11 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D036BBE117C952E700CE6D84 /* k2_random.c in Sources */ = {isa = PBXBuildFile; fileRef = D036BBDF17C952E700CE6D84 /* k2_random.c */; };
 		D04E0C8417C806BE00F35603 /* core.c in Sources */ = {isa = PBXBuildFile; fileRef = D04E0C8017C805EB00F35603 /* core.c */; };
 		D04E0C8517C806C200F35603 /* timer.c in Sources */ = {isa = PBXBuildFile; fileRef = D04E0C8217C8065D00F35603 /* timer.c */; };
 		D04E0C8817C80E6300F35603 /* process.c in Sources */ = {isa = PBXBuildFile; fileRef = D04E0C8617C80A0800F35603 /* process.c */; };
 		D04E0C8B17C8117B00F35603 /* event.c in Sources */ = {isa = PBXBuildFile; fileRef = D04E0C8917C8117700F35603 /* event.c */; };
+		D056E5D217C9136E008AF87A /* sprites.c in Sources */ = {isa = PBXBuildFile; fileRef = D056E5D017C90FF5008AF87A /* sprites.c */; };
 		D081B65517C817E40061006C /* window.c in Sources */ = {isa = PBXBuildFile; fileRef = D081B65317C817E00061006C /* window.c */; };
+		D081B65B17C824FC0061006C /* view_pause.c in Sources */ = {isa = PBXBuildFile; fileRef = D081B65917C824FC0061006C /* view_pause.c */; };
+		D081B65E17C82A300061006C /* util.c in Sources */ = {isa = PBXBuildFile; fileRef = D081B65C17C82A0D0061006C /* util.c */; };
+		D081B66217C907340061006C /* view_building.c in Sources */ = {isa = PBXBuildFile; fileRef = D081B66017C907330061006C /* view_building.c */; };
+		D0D6405917C9567200ACB7BF /* create_level.c in Sources */ = {isa = PBXBuildFile; fileRef = D0D6405717C9567200ACB7BF /* create_level.c */; };
+		D0D6405B17C958B200ACB7BF /* thing.c in Sources */ = {isa = PBXBuildFile; fileRef = D0D6405A17C958B200ACB7BF /* thing.c */; };
 		D0EBB28717C7E40F00475459 /* SDL2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0EBB28617C7E40F00475459 /* SDL2.framework */; };
 		D0FFB16D17C6DD0B0035714F /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0FFB16C17C6DD0B0035714F /* Cocoa.framework */; };
 		D0FFB17717C6DD0B0035714F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D0FFB17517C6DD0B0035714F /* InfoPlist.strings */; };
@@ -64,6 +71,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		D036BBDF17C952E700CE6D84 /* k2_random.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = k2_random.c; sourceTree = "<group>"; };
+		D036BBE017C952E700CE6D84 /* k2_random.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = k2_random.h; sourceTree = "<group>"; };
 		D04E0C8017C805EB00F35603 /* core.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = core.c; sourceTree = "<group>"; };
 		D04E0C8117C805EB00F35603 /* core.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = core.h; sourceTree = "<group>"; };
 		D04E0C8217C8065D00F35603 /* timer.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = timer.c; sourceTree = "<group>"; };
@@ -72,8 +81,20 @@
 		D04E0C8717C80A0800F35603 /* process.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = process.h; sourceTree = "<group>"; };
 		D04E0C8917C8117700F35603 /* event.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = event.c; sourceTree = "<group>"; };
 		D04E0C8A17C8117700F35603 /* event.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = event.h; sourceTree = "<group>"; };
+		D056E5D017C90FF5008AF87A /* sprites.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = sprites.c; sourceTree = "<group>"; };
+		D056E5D117C90FF5008AF87A /* sprites.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = sprites.h; sourceTree = "<group>"; };
 		D081B65317C817E00061006C /* window.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = window.c; sourceTree = "<group>"; };
 		D081B65417C817E00061006C /* window.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = window.h; sourceTree = "<group>"; };
+		D081B65917C824FC0061006C /* view_pause.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = view_pause.c; path = views/view_pause.c; sourceTree = "<group>"; };
+		D081B65A17C824FC0061006C /* view_pause.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = view_pause.h; path = views/view_pause.h; sourceTree = "<group>"; };
+		D081B65C17C82A0D0061006C /* util.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = util.c; sourceTree = "<group>"; };
+		D081B65D17C82A0D0061006C /* util.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = util.h; sourceTree = "<group>"; };
+		D081B65F17C84A820061006C /* thing.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = thing.h; sourceTree = "<group>"; };
+		D081B66017C907330061006C /* view_building.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = view_building.c; sourceTree = "<group>"; };
+		D081B66117C907330061006C /* view_building.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = view_building.h; sourceTree = "<group>"; };
+		D0D6405717C9567200ACB7BF /* create_level.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = create_level.c; sourceTree = "<group>"; };
+		D0D6405817C9567200ACB7BF /* create_level.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = create_level.h; sourceTree = "<group>"; };
+		D0D6405A17C958B200ACB7BF /* thing.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = thing.c; sourceTree = "<group>"; };
 		D0EBB28617C7E40F00475459 /* SDL2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2.framework; path = ../../../../../../../Library/Frameworks/SDL2.framework; sourceTree = "<group>"; };
 		D0FFB16917C6DD0B0035714F /* K2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = K2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0FFB16C17C6DD0B0035714F /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
@@ -144,7 +165,7 @@
 		D0FFB21017C7A8420035714F /* k2_error.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = k2_error.c; sourceTree = "<group>"; };
 		D0FFB21117C7A8420035714F /* k2_error.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = k2_error.h; sourceTree = "<group>"; };
 		D0FFB21217C7A8420035714F /* k2_gl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = k2_gl.h; sourceTree = "<group>"; };
-		D0FFB21317C7A8420035714F /* k2_gl_debug.c! */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "k2_gl_debug.c!"; sourceTree = "<group>"; };
+		D0FFB21317C7A8420035714F /* k2_gl_debug.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = k2_gl_debug.c; sourceTree = "<group>"; };
 		D0FFB21417C7A8420035714F /* k2_gl_debug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = k2_gl_debug.h; sourceTree = "<group>"; };
 		D0FFB21517C7A8420035714F /* k2_hash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = k2_hash.h; sourceTree = "<group>"; };
 		D0FFB21617C7A8420035714F /* k2_irect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = k2_irect.h; sourceTree = "<group>"; };
@@ -272,6 +293,8 @@
 				D0FFB1CB17C6EC720035714F /* config.h */,
 				D04E0C8017C805EB00F35603 /* core.c */,
 				D04E0C8117C805EB00F35603 /* core.h */,
+				D0D6405717C9567200ACB7BF /* create_level.c */,
+				D0D6405817C9567200ACB7BF /* create_level.h */,
 				D0FFB23317C7C3E30035714F /* display.c */,
 				D0FFB22E17C7C3A90035714F /* display.h */,
 				D04E0C8917C8117700F35603 /* event.c */,
@@ -282,12 +305,22 @@
 				D0FFB24717C7D1E70035714F /* physfsrwops.h */,
 				D04E0C8617C80A0800F35603 /* process.c */,
 				D04E0C8717C80A0800F35603 /* process.h */,
+				D056E5D017C90FF5008AF87A /* sprites.c */,
+				D056E5D117C90FF5008AF87A /* sprites.h */,
+				D081B65F17C84A820061006C /* thing.h */,
 				D04E0C8217C8065D00F35603 /* timer.c */,
 				D04E0C8317C8065D00F35603 /* timer.h */,
+				D081B65C17C82A0D0061006C /* util.c */,
+				D081B65D17C82A0D0061006C /* util.h */,
 				D0FFB23117C7C3DC0035714F /* view.c */,
 				D0FFB1CA17C6EC690035714F /* view.h */,
+				D081B66017C907330061006C /* view_building.c */,
+				D081B66117C907330061006C /* view_building.h */,
+				D081B65917C824FC0061006C /* view_pause.c */,
+				D081B65A17C824FC0061006C /* view_pause.h */,
 				D081B65317C817E00061006C /* window.c */,
 				D081B65417C817E00061006C /* window.h */,
+				D0D6405A17C958B200ACB7BF /* thing.c */,
 			);
 			name = src;
 			path = ../src;
@@ -480,7 +513,7 @@
 				D0FFB21017C7A8420035714F /* k2_error.c */,
 				D0FFB21117C7A8420035714F /* k2_error.h */,
 				D0FFB21217C7A8420035714F /* k2_gl.h */,
-				D0FFB21317C7A8420035714F /* k2_gl_debug.c! */,
+				D0FFB21317C7A8420035714F /* k2_gl_debug.c */,
 				D0FFB21417C7A8420035714F /* k2_gl_debug.h */,
 				D0FFB21517C7A8420035714F /* k2_hash.h */,
 				D0FFB21617C7A8420035714F /* k2_irect.h */,
@@ -502,6 +535,8 @@
 				D0FFB22617C7A8420035714F /* k2_vec2.h */,
 				D0FFB22717C7A8420035714F /* k2_vec3.h */,
 				D0FFB22817C7A8420035714F /* k2_vec4.h */,
+				D036BBDF17C952E700CE6D84 /* k2_random.c */,
+				D036BBE017C952E700CE6D84 /* k2_random.h */,
 			);
 			name = "src-k2";
 			path = "../src-k2";
@@ -641,6 +676,13 @@
 				D04E0C8817C80E6300F35603 /* process.c in Sources */,
 				D04E0C8B17C8117B00F35603 /* event.c in Sources */,
 				D081B65517C817E40061006C /* window.c in Sources */,
+				D081B65B17C824FC0061006C /* view_pause.c in Sources */,
+				D081B65E17C82A300061006C /* util.c in Sources */,
+				D081B66217C907340061006C /* view_building.c in Sources */,
+				D056E5D217C9136E008AF87A /* sprites.c in Sources */,
+				D036BBE117C952E700CE6D84 /* k2_random.c in Sources */,
+				D0D6405917C9567200ACB7BF /* create_level.c in Sources */,
+				D0D6405B17C958B200ACB7BF /* thing.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -19,8 +19,8 @@ void display_init(void) {
 	if (config.fullscreen) {
 		flags |= SDL_WINDOW_FULLSCREEN_DESKTOP;
 	} else {
-		width = REFERENCE_WIDTH;
-		height = REFERENCE_HEIGHT;
+		width = REFERENCE_WIDTH << 2;
+		height = REFERENCE_HEIGHT << 2;
 	}
 	SDL_CreateWindowAndRenderer(width, height, flags, &display.window, &display.renderer);
 	SDL_GetRendererInfo(display.renderer, &display.renderer_info);

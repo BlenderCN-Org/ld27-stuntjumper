@@ -35,6 +35,7 @@ static void parse_l10n_file(const char *filename, const char *l10n) {
 	char buf[length + 1];
 	buf[length] = '\0';
 	PHYSFS_readBytes(file, buf, length);
+	PHYSFS_close(file);
 	
 	cJSON *doc = cJSON_Parse(buf);
 	if (! doc) {
