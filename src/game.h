@@ -12,13 +12,19 @@
 #include <stdint.h>
 #include "thing.h"
 
-#define MAX_THINGS	4096
+#define MAX_THINGS	1024
 
 typedef struct {
 	uint32_t	ticks;
+	uint32_t	rescue_ticks;
 	
 	thing_t		things[MAX_THINGS];
 	size_t		thing_count;
+	
+	thing_id_t	dude_id;
+	
+	size_t		input_timeout;
+
 } game_t;
 
 extern game_t game;

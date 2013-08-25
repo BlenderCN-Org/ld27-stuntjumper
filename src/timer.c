@@ -17,31 +17,29 @@ timer_t timer;
 void timer_init(uint32_t *game_ticks, uint32_t run_interval, uint32_t pause_interval) {
 	timer = (timer_t) {
 		.absolute_ticks = SDL_GetTicks(),
-		.sdl_tick_offset = 0,
 		.run_interval = run_interval,
 		.pause_interval = pause_interval,
 		.game_ticks = game_ticks,
 		.paused = false
 	};
-	timer.sdl_tick_offset = timer.absolute_ticks;
 }
 
 void timer_step(void) {
 	timer.absolute_ticks = SDL_GetTicks();
-	uint32_t last_tick = *timer.game_ticks;
 	
 	if (timer.paused) {
-		timer.sdl_tick_offset = timer.absolute_ticks - *timer.game_ticks;
 		LOG_DEBUG("Timer paused, ticks = %u", *timer.game_ticks);
 		SDL_Delay(timer.pause_interval);
 	} else {
-		*timer.game_ticks = timer.absolute_ticks - timer.sdl_tick_offset;
 		uint32_t interval = timer.run_interval;
-		if (last_tick + interval > timer.absolute_ticks) {
-			uint32_t delay = timer.absolute_ticks - (last_tick + interval);
-			LOG_DEBUG("Delaying %u ms", delay);
+		uint32_t actual_interval = timer.absolute_ticks - *timer.game_ticks;
+		
+		if (interval > actual_interval) {
+			uint32_t delay = interval - actual_interval;
+			LOG_TRACE("Delaying %u ms", delay);
 			SDL_Delay(delay);
 		}
+		*timer.game_ticks = timer.absolute_ticks; // don't catch up.
 	}
 
 }

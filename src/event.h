@@ -19,7 +19,7 @@ typedef uint32_t event_handler_t;
 
 void event_init(void);
 
-void event_add_handler(event_handler_t *handler, event_func func, uint32_t event_mask);
+void event_add_handler(event_handler_t *handler, event_func func, uint32_t event_type);
 bool event_remove_handler(event_handler_t *handler);
 
 void event_handle(SDL_Event *event);

@@ -17,6 +17,7 @@ typedef struct sprite {
 	SDL_Texture *texture;
 	
 	size_t frame_count;
+	size_t rate;
 	SDL_Rect src_rect[MAX_FRAMES];
 } sprite_t;
 

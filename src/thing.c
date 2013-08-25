@@ -9,8 +9,8 @@
 #include "thing.h"
 #include "game.h"
 
-thing_id_t thing_at_position(xvec2 position) {
-	for (size_t i = 0; i < thing__last; ++i) {
+thing_id_t thing_at_position(xvec2 position, thing_id_t search_start) {
+	for (thing_id_t i = search_start; i < thing__last; ++i) {
 		thing_t *t = &game.things[i];
 		if (! t->type) continue;
 		
@@ -20,7 +20,7 @@ thing_id_t thing_at_position(xvec2 position) {
 		if (t->position.x + t->size.x <= position.x) continue;
 		if (t->position.y + t->size.y <= position.y) continue;
 		
-		return (thing_id_t)i;
+		return i;
 	}
 	return -1;
 }

@@ -13,14 +13,11 @@
 #include "app.h"
 #include "k2_log.h"
 
-SDL_Color white = { 0xFF, 0xFF, 0xFF, 0xFF };
-
-SDL_Texture *message_texture;
-SDL_Rect message_rect;
+static SDL_Color white = { 0xFF, 0xFF, 0xFF, 0xFF };
+static SDL_Texture *message_texture;
+static SDL_Rect message_rect;
 
 static void activate(void) {
-	PHYSFS_Version v;
-	PHYSFS_getLinkedVersion(&v);
 	PHYSFS_File *pf = PHYSFS_openRead("font/telegrama_render_osn.otf");
 	SDL_RWops *file = PHYSFSRWOPS_makeRWops(pf);
 	TTF_Font *font = TTF_OpenFontRW(file, true, 24);
@@ -36,8 +33,14 @@ static void deactivate(void) {
 }
 
 static void update(void) {
+	// update isn't called during pause
+}
+
+static void render(void) {
 	if (! timer.paused) view_pop();
-	
+
+	view_render_parent();
+
 	uint32_t timebase = timer.absolute_ticks >> 2;
 	SDL_Color c = {
 		timebase % 0xFF,
@@ -47,10 +50,7 @@ static void update(void) {
 	};
 	SDL_SetTextureColorMod(message_texture, c.r, c.g, c.g);
 	util_center_texture_rect(message_texture, &message_rect);
-}
-
-static void render(void) {
-	view_render_parent();
+	
 	SDL_RenderCopy(display.renderer, message_texture, NULL, &message_rect);
 }
 

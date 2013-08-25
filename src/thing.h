@@ -16,7 +16,10 @@ typedef enum {
 	
 	nothing			= 0,
 	
-	dude			= 1,
+	dude			= 0x0001,
+	dude_walk		= 0x0002,
+	dude_dive		= 0x0003,
+	dude_fall		= 0x0004,
 	
 	gull			= 0x0100,
 	cat				= 0x0101,
@@ -43,6 +46,9 @@ typedef enum {
 	building_satellite,
 	building_fullwidth,
 	
+	ground			= 0x06FF,
+
+	gibs			= 0x07FE,
 	catchers		= 0x07FF,
 	thing__last		= 0x0800
 	
@@ -55,21 +61,34 @@ typedef struct {
 	thing_type_t	type;
 	
 	size_t			current_frame;
+	size_t			animate_timeout;
 	
 	xvec2			position;
 	xvec2			velocity;
 	xvec2			size;
 
+	// never moves. causes deflect collisions
+	bool			solid;
+
+	thing_id_t		attached_to;
+	xvec2			attach_offset;
+	
+	// causes downward acceleration UNLESS
+	// solid or attached
+	bool			gravitated;
+
+	float			angle;
+	float			rotation;
+	
 	bool			breakable;
 	bool			broken;
-	bool			attached;
-	thing_id_t		linked_thing;
+	
 	bool			wearing;
-	bool			solid;
+	bool			wearable;
 	
 } thing_t;
 
-thing_id_t thing_at_position(xvec2 position);
+thing_id_t thing_at_position(xvec2 position, thing_id_t search_start);
 thing_type_t thing_type(thing_id_t tid);
 
 #endif

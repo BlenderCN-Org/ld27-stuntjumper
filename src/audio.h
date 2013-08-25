@@ -23,4 +23,7 @@ void audio_destroy(void);
 
 void audio_play_music(const char *file);
 
+void audio_pause_music(void);
+void audio_resume_music(void);
+
 #endif

@@ -36,6 +36,7 @@ void app_init(void) {
 	display_init();
 	event_init();
 	window_init();
+	keyboard_init();
 	audio_init();
 	process_init();
 	view_init();
@@ -54,6 +55,7 @@ void app_destroy() {
 //	display_destroy();
 //	event_destroy();
 //	window_destroy();
+	keyboard_destroy();
 	audio_destroy();
 //	process_destroy();
 //	view_destroy();

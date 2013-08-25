@@ -15,6 +15,7 @@
 #include "display.h"
 #include "event.h"
 #include "game.h"
+#include "keyboard.h"
 #include "process.h"
 #include "sprites.h"
 #include "timer.h"

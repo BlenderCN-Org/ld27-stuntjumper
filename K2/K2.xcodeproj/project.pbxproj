@@ -19,6 +19,8 @@
 		D081B66217C907340061006C /* view_building.c in Sources */ = {isa = PBXBuildFile; fileRef = D081B66017C907330061006C /* view_building.c */; };
 		D0D6405917C9567200ACB7BF /* create_level.c in Sources */ = {isa = PBXBuildFile; fileRef = D0D6405717C9567200ACB7BF /* create_level.c */; };
 		D0D6405B17C958B200ACB7BF /* thing.c in Sources */ = {isa = PBXBuildFile; fileRef = D0D6405A17C958B200ACB7BF /* thing.c */; };
+		D0D6405E17C9803C00ACB7BF /* processes.c in Sources */ = {isa = PBXBuildFile; fileRef = D0D6405C17C9803C00ACB7BF /* processes.c */; };
+		D0D6406117C9846500ACB7BF /* keyboard.c in Sources */ = {isa = PBXBuildFile; fileRef = D0D6405F17C9846500ACB7BF /* keyboard.c */; };
 		D0EBB28717C7E40F00475459 /* SDL2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0EBB28617C7E40F00475459 /* SDL2.framework */; };
 		D0FFB16D17C6DD0B0035714F /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0FFB16C17C6DD0B0035714F /* Cocoa.framework */; };
 		D0FFB17717C6DD0B0035714F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D0FFB17517C6DD0B0035714F /* InfoPlist.strings */; };
@@ -95,6 +97,10 @@
 		D0D6405717C9567200ACB7BF /* create_level.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = create_level.c; sourceTree = "<group>"; };
 		D0D6405817C9567200ACB7BF /* create_level.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = create_level.h; sourceTree = "<group>"; };
 		D0D6405A17C958B200ACB7BF /* thing.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = thing.c; sourceTree = "<group>"; };
+		D0D6405C17C9803C00ACB7BF /* processes.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = processes.c; sourceTree = "<group>"; };
+		D0D6405D17C9803C00ACB7BF /* processes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = processes.h; sourceTree = "<group>"; };
+		D0D6405F17C9846500ACB7BF /* keyboard.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = keyboard.c; sourceTree = "<group>"; };
+		D0D6406017C9846500ACB7BF /* keyboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = keyboard.h; sourceTree = "<group>"; };
 		D0EBB28617C7E40F00475459 /* SDL2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2.framework; path = ../../../../../../../Library/Frameworks/SDL2.framework; sourceTree = "<group>"; };
 		D0FFB16917C6DD0B0035714F /* K2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = K2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0FFB16C17C6DD0B0035714F /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
@@ -321,6 +327,10 @@
 				D081B65317C817E00061006C /* window.c */,
 				D081B65417C817E00061006C /* window.h */,
 				D0D6405A17C958B200ACB7BF /* thing.c */,
+				D0D6405C17C9803C00ACB7BF /* processes.c */,
+				D0D6405D17C9803C00ACB7BF /* processes.h */,
+				D0D6405F17C9846500ACB7BF /* keyboard.c */,
+				D0D6406017C9846500ACB7BF /* keyboard.h */,
 			);
 			name = src;
 			path = ../src;
@@ -683,6 +693,8 @@
 				D036BBE117C952E700CE6D84 /* k2_random.c in Sources */,
 				D0D6405917C9567200ACB7BF /* create_level.c in Sources */,
 				D0D6405B17C958B200ACB7BF /* thing.c in Sources */,
+				D0D6405E17C9803C00ACB7BF /* processes.c in Sources */,
+				D0D6406117C9846500ACB7BF /* keyboard.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

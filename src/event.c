@@ -46,14 +46,17 @@ bool event_remove_handler(event_handler_t *handler) {
 }
 
 void event_handle(SDL_Event *event) {
+	bool handled = false;
 	for (size_t i = 0; i < MAX_HANDLERS; ++i) {
 		if (handlers.records[i].func) {
 			if (handlers.records[i].type == event->type) {
 				if (handlers.records[i].func(event)) {
 					return;
+				} else {
+					handled = true;
 				}
 			}
 		}
 	}
-	LOG_DEBUG("No handler for %X", event->type);
+	if (! handled) LOG_DEBUG("No handler for %X", event->type);
 }

@@ -21,9 +21,10 @@ void core_loop(void) {
 			event_handle(&event);
 		}
 		
-		process_update();
-		
-		view_update();
+		if (! timer.paused) {
+			process_update();			
+			view_update();
+		}
 		view_render();
 		
 		timer_step();

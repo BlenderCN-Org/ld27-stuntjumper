@@ -70,3 +70,11 @@ void audio_play_music(const char *file) {
 		play_music();
 	}
 }
+
+void audio_pause_music(void) {
+	Mix_PauseMusic();
+}
+
+void audio_resume_music(void) {
+	Mix_ResumeMusic();
+}
