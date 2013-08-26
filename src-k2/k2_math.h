@@ -8,7 +8,7 @@
 #ifndef K2_MATH_H
 #define	K2_MATH_H
 
-#include "xpl.h"
+#include "k2_platform.h"
 
 #ifndef M_E
 #define M_E		2.7182818284590452354
@@ -70,7 +70,7 @@
 #define M_SQRT1_2	0.70710678118654752440
 #endif
     
-K2_INLINE float xmix(float a, float b, float r) {
+K2_INLINE float k2_mix(float a, float b, float r) {
     return (1.0f - r) * a + r * b;
 }
 

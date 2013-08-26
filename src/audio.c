@@ -13,12 +13,19 @@
 
 #define RATE		MIX_DEFAULT_FREQUENCY
 #define FORMAT		MIX_DEFAULT_FORMAT
-#define CHANNELS	MIX_DEFAULT_CHANNELS
+#define CHANNELS	MIX_CHANNELS
 #define CHUNK		1024
 
 #define MIX_FADE	1000 // ms
 
-audio_t audio;
+typedef struct {
+	Mix_Music *music;
+	Mix_Music *next_music;
+	
+	Mix_Chunk *current_chunks[CHANNELS];
+} audio_t;
+
+static audio_t audio;
 
 static void play_music(void) {
 	audio.music = audio.next_music;
@@ -32,14 +39,21 @@ static void play_music(void) {
 
 static void music_finished(void) {
 	Mix_HaltMusic();
+	if (audio.music) Mix_FreeMusic(audio.music); 
 	play_music();
+}
+
+static void channel_finished(int channel) {
+	Mix_FreeChunk(audio.current_chunks[channel]);
+	audio.current_chunks[channel] = NULL;
 }
 
 void audio_init(void) {
 	memset(&audio, 0, sizeof(audio));
 	if (Mix_Init(MIX_INIT_MOD | MIX_INIT_OGG | MIX_INIT_MP3) == -1) k2_abort("err_init", "Mix");
-	if (Mix_OpenAudio(RATE, FORMAT, CHANNELS, CHUNK) == -1) k2_abort("err_audio");
+	if (Mix_OpenAudio(RATE, FORMAT, MIX_DEFAULT_CHANNELS, CHUNK) == -1) k2_abort("err_audio");
 	Mix_HookMusicFinished(music_finished);
+	Mix_ChannelFinished(channel_finished);
 }
 
 void audio_destroy(void) {
@@ -52,7 +66,7 @@ void audio_destroy(void) {
 	}
 }
 
-void audio_play_music(const char *file) {
+void audio_music_play(const char *file) {
 	Mix_Music *next = Mix_LoadMUS_RW(PHYSFSRWOPS_openRead(file), true);
 	if (! next) {
 		LOG_ERROR("Music not loaded: %s", file);
@@ -71,10 +85,22 @@ void audio_play_music(const char *file) {
 	}
 }
 
-void audio_pause_music(void) {
+void audio_music_fade(void) {
+	if (audio.music) {
+		Mix_FadeOutMusic(MIX_FADE);
+	}
+}
+
+void audio_play(const char *file) {
+	Mix_Chunk *chunk = Mix_LoadWAV_RW(PHYSFSRWOPS_openRead(file), true);
+	size_t channel = Mix_PlayChannel(-1, chunk, 0);
+	audio.current_chunks[channel] = chunk;
+}
+
+void audio_music_pause(void) {
 	Mix_PauseMusic();
 }
 
-void audio_resume_music(void) {
+void audio_music_resume(void) {
 	Mix_ResumeMusic();
 }

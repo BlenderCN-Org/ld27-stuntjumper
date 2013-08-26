@@ -10,11 +10,14 @@
 
 #include "k2_log.h"
 
-#define FIRE_ESCAPE_PROB 0.02f
-#define CLOTHESLINE_PROB 0.08f
+#define FIRE_ESCAPE_PROB	0.02f
+#define CLOTHESLINE_PROB	0.08f
+#define SATELLITE_PROB		0.02f
 
 static thing_type_t random_building_piece(void) {
-	return k2_random_int(building, building_tv);
+	thing_type_t result = k2_random_int(building, building_venetian);
+	if (util_frand() < SATELLITE_PROB) result = building_tv;
+	return result;
 }
 
 static void create_satellite_dish(thing_id_t parent_id, thing_t *parent) {
@@ -97,7 +100,7 @@ static void create_clothesline(thing_id_t parent_id, thing_t *parent) {
 
 static void create_building(void) {
 	
-	SDL_Rect tile_rect = sprite_get(building)->src_rect[0];
+	SDL_Rect tile_rect = sprite_thing_get(building)->src_rect[0];
 	
 	for (int y = BUILDING_HEIGHT - tile_rect.h; y > 0; y -= tile_rect.h) {
 		thing_id_t thing_id;
@@ -129,7 +132,7 @@ static void create_building(void) {
 }
 
 static void create_dude(void) {
-	thing_t *dt = game_add_thing(dude, &game.dude_id);
+	thing_t *dt = game_add_thing(dude_stand, &game.dude_id);
 	dt->position = xvec2_set(-16, 0);
 }
 

@@ -17,8 +17,10 @@
 #include "game.h"
 #include "keyboard.h"
 #include "process.h"
+#include "score.h"
 #include "sprites.h"
 #include "timer.h"
+#include "timer_blit.h"
 #include "view.h"
 #include "window.h"
 

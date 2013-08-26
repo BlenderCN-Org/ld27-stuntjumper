@@ -16,9 +16,9 @@
 #include <SDL2/SDL.h>
 static void show_abort_message(const char *message) {
 	const char *title;
-	if (! k2_l10n_get_success("error_title", &title)) title = app.name;
+	if (! k2_l10n_get_success("err_title", &title)) title = app.name;
 	SDL_ShowSimpleMessageBox(SDL_MESSAGEBOX_ERROR, title,
-							 message, NULL);
+							 message, display.window);
 }
 
 void k2_abort(const char *error_fmt_key, ...) {

@@ -10,6 +10,7 @@
 #define K2_sprites_h
 
 #include "thing.h"
+#include "score.h"
 
 #define MAX_FRAMES 8
 
@@ -25,6 +26,7 @@ typedef struct sprite {
 void sprites_init(void);
 void sprites_destroy(void);
 
-sprite_t *sprite_get(thing_type_t thing_type);
+sprite_t *sprite_thing_get(thing_type_t thing_type);
+sprite_t *sprite_score_get(score_sprites_t score_sprite);
 
 #endif

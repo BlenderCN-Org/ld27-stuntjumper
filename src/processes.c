@@ -9,6 +9,8 @@
 #include "processes.h"
 #include "create_level.h"
 #include "app.h"
+#include "view_fade.h"
+#include "view_score.h"
 #include "k2_log.h"
 
 #define GRAVITY		1.0f / 60.f
@@ -27,22 +29,40 @@
 
 // --------------------------------------------------------------------------
 
+static void animate_next_state(thing_t *tp) {
+	switch (tp->type) {
+		case building_tv_fritz:
+			tp->type = building_tv_wtf;
+			tp->current_frame = 0;
+			tp->animate_timeout = 0;
+			break;
+			
+		default:
+			break;
+	}
+}
+
 void process_animate(void) {
 	for (size_t i = 0; i < MAX_THINGS; ++i) {
 		thing_t *tp = &game.things[i];
 		if (! tp->type) continue;
 		
-		sprite_t *sprite = sprite_get(tp->type);
+		sprite_t *sprite = sprite_thing_get(tp->type);
+		if (tp->action_timeout && --tp->action_timeout == 0) {
+			animate_next_state(tp);
+		}
+			
 		if (sprite->frame_count == 0) continue;
 		
 		if (tp->animate_timeout > 0) {
 			--tp->animate_timeout;
 			continue;
 		}
-		
+
 		tp->current_frame = (tp->current_frame + 1) % sprite->frame_count;
 		
 		tp->animate_timeout = FRAME_INTERVAL * sprite->rate;
+		
 	}
 }
 
@@ -84,6 +104,8 @@ void process_collide(void) {
 			// That's it. scram
 		} else if (collide->attached_to && collide->attached_to != game.dude_id) {
 			if (collide->wearable) {
+				++game.trigger_count[collide->type];
+								   
 				// Delete and recreate, because it needs to go in front.
 				thing_t *newcollide = game_add_thing(collide->type, NULL);
 				*newcollide = *collide;
@@ -97,16 +119,20 @@ void process_collide(void) {
 				
 				// bye bye old one
 				collide->type = nothing;
+				--game.gen_count[collide->type];
+				
 				dp->velocity.y *= 0.5;
 				
 			} else if (collide->breakable) {
 				if (collide->attached_to) {
 					thing_t *parent = &game.things[collide->attached_to];
 					parent->broken = true;
+					++game.trigger_count[collide->type];
 					if (parent->type == building_tv) {
 						parent->type = building_tv_fritz;
 						parent->current_frame = 1;
 						parent->animate_timeout = 0;
+						parent->action_timeout = 45;
 					}
 				}
 				collide->attached_to = 0;
@@ -123,6 +149,42 @@ void process_collide(void) {
 }
 
 // --------------------------------------------------------------------------
+
+static void set_score(void) {
+	++game.score.uiprops[rounds_played];
+	
+	game.score.bprops[every_cat] = game.trigger_count[cat] == game.gen_count[cat];
+	game.score.bprops[no_cat] = game.trigger_count[cat] == 0;
+	game.score.bprops[every_satellite] = game.trigger_count[building_satellite] == game.gen_count[building_satellite];
+	game.score.bprops[no_satellite] = game.trigger_count[building_satellite] == 0;
+	game.score.bprops[every_dress] = game.trigger_count[dress] == game.gen_count[dress];
+	game.score.bprops[every_bra] = game.trigger_count[bra] == game.gen_count[bra];
+	game.score.bprops[every_jeans] = game.trigger_count[jeans] == game.gen_count[jeans];
+	game.score.bprops[every_tshirt] = game.trigger_count[tshirt] == game.gen_count[tshirt];
+	game.score.bprops[every_clothes] = (game.score.bprops[every_dress] &&
+										game.score.bprops[every_bra] &&
+										game.score.bprops[every_jeans] &&
+										game.score.bprops[every_tshirt]);
+	game.score.bprops[every_fire_escape] = game.trigger_count[fire_escape] == game.gen_count[fire_escape];
+	game.score.bprops[no_fire_escape] = game.trigger_count[fire_escape] == 0;
+	game.score.bprops[first_run] = true; // will only apply first time
+	game.score.bprops[no_left_arrow] = ! game.score.bprops[no_no_left_arrow]; // easier to track if it's been pressed
+	game.score.bprops[no_no_left_arrow] = false; // but the achievement is a trick
+	game.score.bprops[everything_broken] = (game.score.bprops[every_satellite] &&
+											game.score.bprops[every_fire_escape]);
+	game.score.bprops[nothing_broken] = !(game.score.bprops[every_satellite] ||
+										  game.score.bprops[every_fire_escape] ||
+										  game.trigger_count[ladder]);
+	
+	uint32_t rounds = game.score.uiprops[rounds_played];
+	game.score.bprops[replay] = rounds == 2;
+	game.score.bprops[rounds_5] = rounds == 5;
+	game.score.bprops[rounds_10] = rounds == 10;
+	game.score.bprops[rounds_25] = rounds == 25;
+	game.score.bprops[rounds_100] = rounds == 100;
+	game.score.bprops[rounds_250] = rounds == 250;
+	game.score.bprops[rounds_1000] = rounds == 10000;
+}
 
 static void process_dude_fall(thing_t *dt) {
 	float move;
@@ -155,19 +217,40 @@ static void process_dude_dive(thing_t *dt) {
 	}
 }
 
+static void process_dude_gibs(thing_t *dt) {
+	if (view_fade_done()) {
+		set_score();
+
+		// Pop everything (pause? fade? who cares)
+		while (view_pop()) { };
+		view_fade_in((SDL_Color) { 255, 255, 255, 255 });
+		view_push(&view_score);
+		view_push(&view_fade);
+		audio_music_fade();
+		
+		
+		process_init();
+		
+	} else {
+		uint32_t since_ended = game.active_ticks - game.ended_at_ticks;
+		if (since_ended == 60) {
+			view_push(&view_fade);
+		}
+	}
+}
+
 void process_dude(void) {
 	thing_t *dt = &game.things[game.dude_id];
 	switch (dt->type) {
-		case dude:
+		case dude_stand:
 			// cmon hero
 			// cmon
-			// cmon hero
-			audio_pause_music();
+			audio_music_pause();
 			break;
 			
 		case dude_walk:
 			// YEAH!
-			audio_resume_music();
+			audio_music_resume();
 			process_dude_walk(dt);
 			break;
 			
@@ -179,12 +262,16 @@ void process_dude(void) {
 			process_dude_fall(dt);
 			break;
 			
+		case gibs:
+			process_dude_gibs(dt);
+			break;
+			
 		default:
 			break;
 	}
 	
 	if (dt->type >= dude_dive) {
-		++game.rescue_ticks;
+		++game.active_ticks;
 	}
 }
 
@@ -208,6 +295,8 @@ void process_gravity(void) {
 
 
 static void handle_dude_left(thing_t *dt) {
+	game.score.bprops[no_no_left_arrow] = true;
+	
 	if (dt->type != dude_fall) return;
 	
 	if (dt->current_frame > 0) --dt->current_frame;
@@ -216,7 +305,7 @@ static void handle_dude_left(thing_t *dt) {
 
 static void handle_dude_right(thing_t *dt) {
 	switch (dt->type) {
-		case dude:
+		case dude_stand:
 			dt->type = dude_walk;
 			break;
 		case dude_walk:
@@ -240,17 +329,40 @@ void process_input(void) {
 		return;
 	}
 	
+	if (dt->type > dude_fall) return;
+	
 	if (keyboard_is_down(SDLK_LEFT)) handle_dude_left(dt);
 	if (keyboard_is_down(SDLK_RIGHT)) handle_dude_right(dt);
 	
 	if (dt->type == dude_walk && ! game.input_timeout) {
 		// no keys down and dude_walk becomes dude.
-		dt->type = dude;
+		dt->type = dude_stand;
 		dt->current_frame = 0;
 	}
 }
 
 // --------------------------------------------------------------------------
+
+static void ground_dude(thing_t *dudep) {
+	dudep->position = xvec2_set(dudep->position.x - 16, BUILDING_HEIGHT - 8);
+	dudep->velocity = xvec2_all(0.f);
+	dudep->type = gibs;
+	dudep->current_frame = 0;
+	dudep->gravitated = false;
+	dudep->solid = true;
+	
+	game.ended_at_ticks = game.active_ticks;
+	game.over = true;
+	
+	// Fade to white. Push after a second, not yet.
+	view_fade_out((SDL_Color) { 255, 255, 255, 255 });
+	
+	for (size_t i = 0; i < MAX_THINGS; ++i) {
+		thing_t *tp = &game.things[i];
+		if (! tp->type) continue;
+		if (tp->attached_to == game.dude_id) tp->attached_to = 0;
+	}
+}
 
 
 void process_momentum(void) {
@@ -279,12 +391,7 @@ void process_momentum(void) {
 		
 		if (tp->position.y > BUILDING_HEIGHT) {
 			if (tp->type == dude_fall) {
-				tp->position = xvec2_set(tp->position.x - 16, BUILDING_HEIGHT - 8);
-				tp->velocity = xvec2_all(0.f);
-				tp->type = gibs;
-				tp->current_frame = 0;
-				tp->gravitated = false;
-				tp->solid = true;
+				ground_dude(tp);
 			} else {
 				tp->position.y = BUILDING_HEIGHT - (tp->position.y - BUILDING_HEIGHT);
 				tp->velocity.y = -COEFF_REST * tp->velocity.y;

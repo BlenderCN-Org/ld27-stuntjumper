@@ -22,7 +22,7 @@
 #define H64(s,i,x)  H16(s,i,H16(s,i+16,H16(s,i+32,H16(s,i+48,x))))
 #define H256(s,i,x) H64(s,i,H64(s,i+64,H64(s,i+128,H64(s,i+192,x))))
 
-#define k2_hash_string(s)    ((uint32_t)(H16(s,0,31)))
+#define k2_hash_string(s)    ((uint32_t)(H64(s,0,31)))
 
 
 #endif

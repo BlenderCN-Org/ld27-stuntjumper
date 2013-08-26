@@ -10,6 +10,7 @@
 #define K2_k2_physfs_h
 
 #include <stdbool.h>
+#include "physfs.h"
 
 int k2_physfs_set_sane_config(const char *appName, const char *archiveExt, bool archivesFirst);
 

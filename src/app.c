@@ -7,6 +7,7 @@
 //
 
 #include "app.h"
+#include "view_fade.h"
 
 app_t app = {
 	.name = "K2 test app",
@@ -34,6 +35,8 @@ static bool quit_request(SDL_Event *event) {
 void app_init(void) {
 	config_init();
 	display_init();
+	score_init();
+	timer_blit_init();
 	event_init();
 	window_init();
 	keyboard_init();
@@ -42,12 +45,15 @@ void app_init(void) {
 	view_init();
 	sprites_init();
 	timer_init(&game.ticks, config.frame_interval, 10 * config.frame_interval);
-	game_init();
 	
 	event_add_handler(NULL, quit_request, SDL_QUIT);
-	event_add_handler(NULL, quit_request, SDL_WINDOWEVENT);
+	event_add_handler(NULL, quit_request, SDL_WINDOWEVENT);	
+
+	view_push(&view_fade);	
+	view_fade_in((SDL_Color) {0});
+
 	
-	audio_play_music("music/d82a.ogg");
+	game_init();
 }
 
 void app_destroy() {
@@ -55,6 +61,8 @@ void app_destroy() {
 //	display_destroy();
 //	event_destroy();
 //	window_destroy();
+//	score_destroy();
+	timer_blit_destroy();
 	keyboard_destroy();
 	audio_destroy();
 //	process_destroy();

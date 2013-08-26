@@ -13,13 +13,13 @@ static bool keys[SDL_NUM_SCANCODES];
 event_handler_t keydown_listener, keyup_listener;
 
 static bool on_keydown(SDL_Event *event) {
-	SDL_Keycode kc = event->key.keysym.scancode;
+	SDL_Keycode kc = event->key.keysym.sym & (SDL_NUM_SCANCODES - 1);
 	keys[kc] = true;
 	return false; // keep processing keys
 }
 
 static bool on_keyup(SDL_Event *event) {
-	SDL_Keycode kc = event->key.keysym.scancode;
+	SDL_Keycode kc = event->key.keysym.sym & (SDL_NUM_SCANCODES - 1);
 	keys[kc] = false;
 	return false; // allow other listeners to process this key
 }

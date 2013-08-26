@@ -3,6 +3,92 @@
 		"err_title"	:				"Fatal Error",
 		"err_init" :				"Could not initialize the application. (%s)",
 		"err_texture" :				"Could not load required texture. (%s)",
+		"err_write_save" :			"Could not open the save file for writing.",
+		"err_audio" :				"Could not open the audio mixer.",
+		
+		"title" :					"Stunt Jumper",
+		"title_1" :					"Stunt",
+		"title_2" :					"Jumper",
+		"byline" :					"A game by Hume",
+		"ludum" :					"for Ludum Dare 27",
+		"any_key" :					"Press any key",
+		
+		"game_over" :				"Game Over",
+		"press_esc" :				"Press ESC",
+		
+		"score_elapsed_time" :		"Elapsed Time",
+		"score_achievements" :		"Achievements",
+		"score_achievements_none" :	"Better luck next life!",
+		"score_achievements_more" :	"More",
+		
+		"score_every_cat_title" :	"Kitty Scourge",
+		"score_every_cat_desc" :	"Actually, you can take them with you.",
+		
+		"score_no_cat_title" :		"Furry Legacy",
+		"score_no_cat_desc" :		"Now who will protect the kitties!?",
+		
+		"score_every_satellite_title" :	"De-Opiator",
+		"score_every_satellite_desc" : "You wasted your life so they wouldn't waste theirs.",
+		
+		"score_no_satellite_title" : "TV Protector",
+		"score_no_satellite_desc" :	"No need for everybody else to be miserable, too.",
+		
+		"score_every_dress_title" :	"Little Black Numbers",
+		"score_every_dress_desc" :	"You looked fetching in every cocktail dress.",
+		
+		"score_every_bra_title" :	"Megabra",
+		"score_every_bra_desc" :	"You finally got the support you needed.",
+		
+		"score_every_jeans_title" :	"Denim Hoarder",
+		"score_every_jeans_desc" :	"It'll probably wash right out.",
+		
+		"score_every_tshirt_title" : "T-Shirt Baron",
+		"score_every_tshirt_desc" :	"Now they're tie-died!",
+		
+		"score_every_clothes_title" : "All The Clothes",
+		"score_every_clothes_desc" : "Nudity is your legacy.",
+		
+		"score_every_fire_escape_title" : "Fiery Temper",
+		"score_every_fire_escape_desc" : "You destroyed every fire escape on the way down.",
+		
+		"score_no_fire_escape_title" : "Fire Escapist",
+		"score_no_fire_escape_desc"	: "Thanks to your diligence, everybody still has a tiny unsafe balcony.",
+		
+		"score_first_run_title" :	"Jumper",
+		"score_first_run_desc" :	"You're never the same after your first time.",
+		
+		"score_no_left_arrow_title" : "No Going Back",
+		"score_no_left_arrow_desc" : "100% commitment.",
+		
+		"score_no_no_left_arrow_title" : "No No Going Back",
+		"score_no_no_left_arrow_desc" : "Okay, that was clever.",
+		
+		"score_everything_broken_title" : "Shiva",
+		"score_everything_broken_desc" : "Now you are become death, destroyer of sprites.",
+		
+		"score_nothing_broken_title" :	"No Damage",
+		"score_nothing_broken_desc" :	"You made a mess without making a mess.",
+		
+		"score_replay_title" :		"Back for more?",
+		"score_replay_desc" :		"Welcome back.",
+		
+		"score_rounds_5_title" :	"What would happen if...",
+		"score_rounds_5_desc" :		"You completed 5 jumps.",
+		
+		"score_rounds_10_title" :	"A Little Dark",
+		"score_rounds_10_desc" :	"You completed 10 jumps.",
+		
+		"score_rounds_25_title" :	"Frequent Flyer",
+		"score_rounds_25_desc" :	"You completed 25 jumps.",
+		
+		"score_rounds_100_title" :	"Swandive Savant",
+		"score_rounds_100_desc" :	"You completed 100 jumps.",
+		
+		"score_rounds_250_title" :	"Sidewalk Scourge",
+		"score_rounds_250_desc" :	"You completed 250 jumps.",
+		
+		"score_rounds_1000_title" :	"Grim Reapee",
+		"score_rounds_1000_desc" :	"You plummeted to your virtual death 1000 times, and we're worried about you.",
 		
 		"_last" :					""
 	}

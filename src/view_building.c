@@ -10,11 +10,9 @@
 #include "view_building.h"
 #include "sprites.h"
 #include "k2_log.h"
-#include <SDL2_ttf/SDL_ttf.h>
+#include "timer_blit.h"
 
 #define SUNSET_SPEED 0.01f
-
-static SDL_Color white = { 0xFF, 0xFF, 0xFF, 0xFF };
 
 static sprite_t sky;
 static float sunset;
@@ -24,33 +22,13 @@ static struct {
 	xvec2 offset;
 } camera;
 
-const char *glyphs = "0123456789.:";
-static struct {
-	sprite_t glyphs[20];
-	struct {
-		sprite_t *glyph;
-		SDL_Rect dest;
-	} character[15];
-	size_t length;
-} timer_text;
-
 static void activate(void) {
 	memset(&camera, 0, sizeof(camera));
 	camera.current.x = camera.target.x = REFERENCE_WIDTH / 2;
 	camera.current.y = BUILDING_HEIGHT - REFERENCE_HEIGHT / 2;
 	sky.texture = util_create_texture("sprite/sky.png", sky.src_rect);
-
-	PHYSFS_File *pf = PHYSFS_openRead("font/telegrama_render_osn.otf");
-	SDL_RWops *file = PHYSFSRWOPS_makeRWops(pf);
-	TTF_Font *font = TTF_OpenFontRW(file, true, 12);
-	for (size_t i = 0; i < strlen(glyphs); ++i) {
-		char digit_buffer[2];
-		snprintf(digit_buffer, 2, "%c", glyphs[i]);
-		SDL_Surface *surf = TTF_RenderUTF8_Blended(font, digit_buffer, white);
-		util_sprite_from_surf(&timer_text.glyphs[i], 0, surf);
-		SDL_FreeSurface(surf);
-	}
-	TTF_CloseFont(font);
+	
+	audio_music_play("music/bgm.ogg");
 	
 	sunset = 0.f;
 }
@@ -92,34 +70,9 @@ static void update_sunset(void) {
 	}
 }
 
-static void update_timer(void) {
-	float time = game.rescue_ticks / 60.f;
-	
-	char timer_str[11];
-	snprintf(timer_str, 11, "%.2f", time);
-	size_t len = strlen(timer_str);
-	
-	timer_text.length = 0;
-	xvec2 pos = {{ REFERENCE_WIDTH - 10, 10 }};
-	for (size_t i = 0; i < len; ++i) {
-		ptrdiff_t glyph_index = strchr(glyphs, timer_str[len - i - 1]) - glyphs;
-		sprite_t *glyph = &timer_text.glyphs[glyph_index];
-		timer_text.character[timer_text.length].glyph = glyph;
-		pos.x -= glyph->src_rect[0].w;
-		timer_text.character[timer_text.length].dest = (SDL_Rect) {
-			pos.x,
-			pos.y,
-			glyph->src_rect[0].w,
-			glyph->src_rect[0].h
-		};
-		++timer_text.length;
-	}
-}
-
 static void update(void) {
 	update_camera();
 	update_sunset();
-	update_timer();
 }
 
 SDL_Rect target_rect(sprite_t *sprite, int x, int y, float offset_mult) {
@@ -132,13 +85,13 @@ SDL_Rect target_rect(sprite_t *sprite, int x, int y, float offset_mult) {
 }
 
 static void render(void) {
-	SDL_Rect target = target_rect(&sky, -64, -REFERENCE_HEIGHT / 2 - 128, 0.25f);
+	SDL_Rect target = target_rect(&sky, -64, (REFERENCE_HEIGHT - BUILDING_HEIGHT / 4) - 128, 0.25f);
 	target.y += sunset;
 	SDL_RenderCopy(display.renderer, sky.texture, sky.src_rect, &target);
 	for (size_t i = 0; i < MAX_THINGS; ++i) {
 		thing_t *thing = &game.things[i];
 		if (! thing->type) continue;
-		sprite_t *sprite = sprite_get(thing->type);
+		sprite_t *sprite = sprite_thing_get(thing->type);
 		target = target_rect(sprite, thing->position.x, thing->position.y, 1.f);
 		
 		if (thing->current_frame > sprite->frame_count) {
@@ -150,10 +103,10 @@ static void render(void) {
 						 &sprite->src_rect[thing->current_frame], &target, thing->angle, NULL, 0);
 	}
 	
-	for (size_t i = 0; i < timer_text.length; ++i) {
-		SDL_RenderCopy(display.renderer, timer_text.character[i].glyph->texture,
-					   timer_text.character[i].glyph->src_rect, &timer_text.character[i].dest);
+	if (camera.target.y > 0) {
+		timer_blit(game.active_ticks, REFERENCE_WIDTH - 10, 10);
 	}
+	
 }
 
 

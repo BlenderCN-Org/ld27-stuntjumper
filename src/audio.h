@@ -11,19 +11,14 @@
 
 #include <SDL2_mixer/SDL_mixer.h>
 
-typedef struct {
-	Mix_Music *music;
-	Mix_Music *next_music;
-} audio_t;
-
-extern audio_t audio;
-
 void audio_init(void);
 void audio_destroy(void);
 
-void audio_play_music(const char *file);
+void audio_music_play(const char *file);
+void audio_play(const char *file);
 
-void audio_pause_music(void);
-void audio_resume_music(void);
+void audio_music_pause(void);
+void audio_music_resume(void);
+void audio_music_fade(void);
 
 #endif

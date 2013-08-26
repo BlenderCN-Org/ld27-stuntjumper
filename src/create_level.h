@@ -12,7 +12,7 @@
 #include "app.h"
 #include "k2_random.h"
 
-#define BUILDING_HEIGHT 8192
+#define BUILDING_HEIGHT 4096
 
 void create_level(void);
 

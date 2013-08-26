@@ -61,17 +61,18 @@ void view_push(view_t *new_view) {
 	current_view()->activate();
 }
 
-void view_pop(void) {
+bool view_pop(void) {
 	if (stack.current == 0) {
-		LOG_WARN("Not popping last view");
-		return;
+		return false;
 	}
 	
 	current_view()->deactivate();
 	--stack.current;
+	return true;
 }
 
 void view_update(void) {
+	stack.render_ptr = stack.current;
 	current_view()->update();
 }
 
@@ -79,6 +80,16 @@ void view_render(void) {
 	stack.render_ptr = stack.current;
 	current_view()->render();
 	SDL_RenderPresent(display.renderer);
+}
+
+void view_update_parent(void) {
+	if (stack.render_ptr == 0) {
+		LOG_WARN("Can't update parent of last view");
+		return;
+	}
+	
+	--stack.render_ptr;
+	render_view()->update();
 }
 
 void view_render_parent(void) {

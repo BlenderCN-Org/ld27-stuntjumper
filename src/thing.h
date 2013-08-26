@@ -16,7 +16,7 @@ typedef enum {
 	
 	nothing			= 0,
 	
-	dude			= 0x0001,
+	dude_stand			= 0x0001,
 	dude_walk		= 0x0002,
 	dude_dive		= 0x0003,
 	dude_fall		= 0x0004,
@@ -43,8 +43,12 @@ typedef enum {
 	building_venetian,
 	building_tv,
 	building_tv_fritz,
+	building_tv_wtf,
 	building_satellite,
 	building_fullwidth,
+	
+	building_window_fg,
+	building_window_backlight,
 	
 	ground			= 0x06FF,
 
@@ -62,6 +66,8 @@ typedef struct {
 	
 	size_t			current_frame;
 	size_t			animate_timeout;
+	
+	size_t			action_timeout;
 	
 	xvec2			position;
 	xvec2			velocity;
