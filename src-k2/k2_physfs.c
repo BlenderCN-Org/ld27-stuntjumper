@@ -13,6 +13,7 @@
 #include <string.h>
 #include <stdlib.h>
 #include <physfs/physfs.h>
+#include <io.h>
 
 #include "k2_log.h"
 #include "k2_platform.h"
@@ -40,6 +41,20 @@ static void add_config_path(const char *i, const size_t l, const char *dirsep,
     } /* if */
 } /* setSaneCfgAddPath */
 
+static void mount_path(const char *path) {
+    char resource_path[PATH_MAX];
+#if defined (K2_PLATFORM_APPLE)
+	snprintf(resource_path, PATH_MAX, "%s%s", path,
+			 "Contents/Resources/resources-pkg");
+#else
+	snprintf(resource_path, PATH_MAX, "%s%s%s", path, PHYSFS_getDirSeparator(),
+			 "resources-pkg");	
+#endif
+    // Add both the supplied path and any resources-pkg subdir.
+    PHYSFS_mount(path, NULL, 1);
+   	PHYSFS_mount(resource_path, NULL, 1);
+}
+
 #define BAIL_IF_MACRO(c, RC, k) { if (c) return RC; }
 
 int k2_physfs_set_sane_config(const char *app_name,
@@ -48,7 +63,11 @@ int k2_physfs_set_sane_config(const char *app_name,
 {
 	const char *organization = "Informi Labs";
 	
+    char cwd_b[PATH_MAX];
+    const char *cwd = (const char *)cwd_b;
+    getcwd(cwd, PATH_MAX);
     const char *basedir = PHYSFS_getBaseDir();
+    
     const char *prefdir = PHYSFS_getPrefDir(organization, app_name);
     const char *dirsep = PHYSFS_getDirSeparator();
 
@@ -61,19 +80,11 @@ int k2_physfs_set_sane_config(const char *app_name,
     /* Put write dir first in search path... */
     PHYSFS_mount(prefdir, NULL, 0);
 	
-	char resource_path[PATH_MAX];
-#if defined (K2_PLATFORM_APPLE)
-	snprintf(resource_path, PATH_MAX, "%s%s", basedir,
-			 "Contents/Resources/resources-pkg");
-#else
-	snprintf(resource_path, PATH_MAX, "%s%s", basedir,
-			 "resources-pkg");	
-#endif
-	PHYSFS_mount(resource_path, NULL, 1);
-	
-	/* Put base path on search path... */
-    PHYSFS_mount(basedir, NULL, 1);
-	
+    mount_path(basedir);
+    if (strncmp(basedir, cwd, PATH_MAX)) {
+        mount_path(cwd);
+    }
+   
 	
 	/* Root out archives, and add them to search path... */
     if (archive_extension != NULL)

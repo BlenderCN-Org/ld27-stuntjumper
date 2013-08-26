@@ -10,6 +10,7 @@
 #define p1_k2_vec2_h
 
 #include <stdbool.h>
+#include <math.h>
 
 #include "k2_platform.h"
 

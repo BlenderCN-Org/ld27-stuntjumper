@@ -8,7 +8,10 @@
 
 #include "timer_blit.h"
 #include "app.h"
-#include <SDL2_ttf/SDL_ttf.h>
+#include "sdl.h"
+#include <string.h>
+#include <stdio.h>
+#include "k2_error.h"
 
 static const char *glyphs = "0123456789.:";
 static struct {
@@ -25,6 +28,7 @@ static const SDL_Color white = { 0xFF, 0xFF, 0xFF, 0xFF };
 
 void timer_blit_init(void) {
 	PHYSFS_File *pf = PHYSFS_openRead(FONT);
+    if (! pf) k2_abort("err_init", FONT);
 	SDL_RWops *file = PHYSFSRWOPS_makeRWops(pf);
 	TTF_Font *font = TTF_OpenFontRW(file, true, 12);
 	float widest = 0.f;

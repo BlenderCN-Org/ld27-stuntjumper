@@ -122,7 +122,8 @@
 #if (K2_LOG_LEVEL < K2_LOG_LEVEL_OFF)
 #define K2_LOG_MAX 16384
 extern char ___k2_log_output[K2_LOG_MAX];
-#	ifdef _WIN32
+#	ifdef K2_PLATFORM_WINDOWS
+char *k2_basename(const char *name);
 /* MinGW points to _iob which the IDEs don't like */
 #		define k2_log(stream, color, level, file, func, line, ...) \
 do { printf("[%s]\t %s %s:%d %s\n", level, k2_basename(file), func, line, (snprintf(___k2_log_output, K2_LOG_MAX, __VA_ARGS__), ___k2_log_output)); fflush(stdout); } while (0)

@@ -1,0 +1,709 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configurationDescriptor version="88">
+  <logicalFolder name="root" displayName="root" projectFiles="true" kind="ROOT">
+    <logicalFolder name="HeaderFiles"
+                   displayName="Header Files"
+                   projectFiles="true">
+    </logicalFolder>
+    <logicalFolder name="ResourceFiles"
+                   displayName="Resource Files"
+                   projectFiles="true">
+    </logicalFolder>
+    <logicalFolder name="SourceFiles"
+                   displayName="Source Files"
+                   projectFiles="true">
+      <logicalFolder name="src" displayName="src" projectFiles="true">
+        <logicalFolder name="views" displayName="views" projectFiles="true">
+          <itemPath>../src/views/view_pause.c</itemPath>
+          <itemPath>../src/views/view_pause.h</itemPath>
+        </logicalFolder>
+        <itemPath>../src/_main.c</itemPath>
+        <itemPath>../src/app.c</itemPath>
+        <itemPath>../src/app.h</itemPath>
+        <itemPath>../src/audio.c</itemPath>
+        <itemPath>../src/audio.h</itemPath>
+        <itemPath>../src/config.c</itemPath>
+        <itemPath>../src/config.h</itemPath>
+        <itemPath>../src/core.c</itemPath>
+        <itemPath>../src/core.h</itemPath>
+        <itemPath>../src/create_level.c</itemPath>
+        <itemPath>../src/create_level.h</itemPath>
+        <itemPath>../src/display.c</itemPath>
+        <itemPath>../src/display.h</itemPath>
+        <itemPath>../src/event.c</itemPath>
+        <itemPath>../src/event.h</itemPath>
+        <itemPath>../src/game.c</itemPath>
+        <itemPath>../src/game.h</itemPath>
+        <itemPath>../src/keyboard.c</itemPath>
+        <itemPath>../src/keyboard.h</itemPath>
+        <itemPath>../src/physfsrwops.c</itemPath>
+        <itemPath>../src/physfsrwops.h</itemPath>
+        <itemPath>../src/process.c</itemPath>
+        <itemPath>../src/process.h</itemPath>
+        <itemPath>../src/processes.c</itemPath>
+        <itemPath>../src/processes.h</itemPath>
+        <itemPath>../src/score.c</itemPath>
+        <itemPath>../src/score.h</itemPath>
+        <itemPath>../src/sdl.h</itemPath>
+        <itemPath>../src/sprites.c</itemPath>
+        <itemPath>../src/sprites.h</itemPath>
+        <itemPath>../src/thing.c</itemPath>
+        <itemPath>../src/thing.h</itemPath>
+        <itemPath>../src/timer.c</itemPath>
+        <itemPath>../src/timer.h</itemPath>
+        <itemPath>../src/timer_blit.c</itemPath>
+        <itemPath>../src/timer_blit.h</itemPath>
+        <itemPath>../src/util.c</itemPath>
+        <itemPath>../src/util.h</itemPath>
+        <itemPath>../src/view.c</itemPath>
+        <itemPath>../src/view.h</itemPath>
+        <itemPath>../src/view_building.c</itemPath>
+        <itemPath>../src/view_building.h</itemPath>
+        <itemPath>../src/view_fade.c</itemPath>
+        <itemPath>../src/view_fade.h</itemPath>
+        <itemPath>../src/view_score.c</itemPath>
+        <itemPath>../src/view_score.h</itemPath>
+        <itemPath>../src/view_title.c</itemPath>
+        <itemPath>../src/view_title.h</itemPath>
+        <itemPath>../src/window.c</itemPath>
+        <itemPath>../src/window.h</itemPath>
+      </logicalFolder>
+      <logicalFolder name="src-k2" displayName="src-k2" projectFiles="true">
+        <itemPath>../src-k2/k2_error.c</itemPath>
+        <itemPath>../src-k2/k2_error.h</itemPath>
+        <itemPath>../src-k2/k2_hash.h</itemPath>
+        <itemPath>../src-k2/k2_ivec2.h</itemPath>
+        <itemPath>../src-k2/k2_ivec3.h</itemPath>
+        <itemPath>../src-k2/k2_ivec4.h</itemPath>
+        <itemPath>../src-k2/k2_l10n.c</itemPath>
+        <itemPath>../src-k2/k2_l10n.h</itemPath>
+        <itemPath>../src-k2/k2_log.c</itemPath>
+        <itemPath>../src-k2/k2_log.h</itemPath>
+        <itemPath>../src-k2/k2_math.h</itemPath>
+        <itemPath>../src-k2/k2_physfs.c</itemPath>
+        <itemPath>../src-k2/k2_physfs.h</itemPath>
+        <itemPath>../src-k2/k2_platform.h</itemPath>
+        <itemPath>../src-k2/k2_random.c</itemPath>
+        <itemPath>../src-k2/k2_random.h</itemPath>
+        <itemPath>../src-k2/k2_vec2.h</itemPath>
+      </logicalFolder>
+      <logicalFolder name="src-lib" displayName="src-lib" projectFiles="true">
+        <logicalFolder name="cJSON" displayName="cJSON" projectFiles="true">
+          <itemPath>../src-lib/cJSON/cJSON.c</itemPath>
+          <itemPath>../src-lib/cJSON/cJSON.h</itemPath>
+        </logicalFolder>
+        <logicalFolder name="GL3" displayName="GL3" projectFiles="true">
+          <itemPath>../src-lib/GL3/gl3.h</itemPath>
+          <itemPath>../src-lib/GL3/gl3w.c</itemPath>
+          <itemPath>../src-lib/GL3/gl3w.h</itemPath>
+        </logicalFolder>
+        <logicalFolder name="physfs" displayName="physfs" projectFiles="true">
+          <itemPath>../src-lib/physfs/physfs.h</itemPath>
+          <itemPath>../src-lib/physfs/physfs_casefolding.h</itemPath>
+          <itemPath>../src-lib/physfs/physfs_internal.h</itemPath>
+          <itemPath>../src-lib/physfs/physfs_miniz.h</itemPath>
+          <itemPath>../src-lib/physfs/physfs_platforms.h</itemPath>
+        </logicalFolder>
+        <logicalFolder name="soil-20080707"
+                       displayName="soil-20080707"
+                       projectFiles="true">
+          <logicalFolder name="src" displayName="src" projectFiles="true">
+            <itemPath>../src-lib/soil-20080707/src/SOIL.c</itemPath>
+            <itemPath>../src-lib/soil-20080707/src/image_DXT.c</itemPath>
+            <itemPath>../src-lib/soil-20080707/src/image_helper.c</itemPath>
+            <itemPath>../src-lib/soil-20080707/src/stb_image_aug.c</itemPath>
+          </logicalFolder>
+        </logicalFolder>
+        <itemPath>../src-lib/SOIL.h</itemPath>
+        <itemPath>../src-lib/image_DXT.h</itemPath>
+        <itemPath>../src-lib/image_helper.h</itemPath>
+        <itemPath>../src-lib/stb_image_aug.h</itemPath>
+        <itemPath>../src-lib/stbi_DDS_aug.h</itemPath>
+        <itemPath>../src-lib/stbi_DDS_aug_c.h</itemPath>
+        <itemPath>../src-lib/utarray.h</itemPath>
+        <itemPath>../src-lib/uthash.h</itemPath>
+        <itemPath>../src-lib/utlist.h</itemPath>
+        <itemPath>../src-lib/utstring.h</itemPath>
+      </logicalFolder>
+    </logicalFolder>
+    <logicalFolder name="TestFiles"
+                   displayName="Test Files"
+                   projectFiles="false"
+                   kind="TEST_LOGICAL_FOLDER">
+    </logicalFolder>
+    <logicalFolder name="ExternalFiles"
+                   displayName="Important Files"
+                   projectFiles="false"
+                   kind="IMPORTANT_FILES_FOLDER">
+      <itemPath>Makefile</itemPath>
+    </logicalFolder>
+  </logicalFolder>
+  <sourceRootList>
+    <Elem>../src</Elem>
+    <Elem>../src-k2</Elem>
+    <Elem>../src-lib</Elem>
+  </sourceRootList>
+  <projectmakefile>Makefile</projectmakefile>
+  <confs>
+    <conf name="Debug" type="1">
+      <toolsSet>
+        <remote-sources-mode>LOCAL_SOURCES</remote-sources-mode>
+        <compilerSet>default</compilerSet>
+      </toolsSet>
+      <compileType>
+        <cTool>
+          <incDir>
+            <pElem>../src</pElem>
+            <pElem>../src-k2</pElem>
+            <pElem>../src-lib</pElem>
+            <pElem>../lib/win32/include</pElem>
+            <pElem>../lib/common/include</pElem>
+          </incDir>
+          <commandLine>-std=gnu99</commandLine>
+        </cTool>
+        <linkerTool>
+          <linkerAddLib>
+            <pElem>../lib/win32</pElem>
+          </linkerAddLib>
+          <linkerLibItems>
+            <linkerLibLibItem>mingw32</linkerLibLibItem>
+            <linkerLibLibItem>SDL2main</linkerLibLibItem>
+            <linkerLibLibItem>SDL2_mixer</linkerLibLibItem>
+            <linkerLibLibItem>SDL2_image</linkerLibLibItem>
+            <linkerLibLibItem>SDL2_ttf</linkerLibLibItem>
+            <linkerLibLibItem>SDL2</linkerLibLibItem>
+            <linkerLibLibItem>opengl32</linkerLibLibItem>
+            <linkerLibLibItem>freetype</linkerLibLibItem>
+            <linkerLibLibItem>winmm</linkerLibLibItem>
+            <linkerLibLibItem>gdi32</linkerLibLibItem>
+            <linkerLibLibItem>user32</linkerLibLibItem>
+            <linkerLibLibItem>physfs</linkerLibLibItem>
+            <linkerLibLibItem>ole32</linkerLibLibItem>
+            <linkerLibLibItem>oleaut32</linkerLibLibItem>
+            <linkerLibLibItem>version</linkerLibLibItem>
+            <linkerLibLibItem>imm32</linkerLibLibItem>
+          </linkerLibItems>
+          <commandLine>-mwindows</commandLine>
+        </linkerTool>
+      </compileType>
+      <packaging>
+        <packType>Zip</packType>
+        <commandlineTool>zip</commandlineTool>
+        <packFileList>
+          <packFileListElem type="File"
+                            to="${PACKAGE_TOP_DIR}${OUTPUT_BASENAME}.exe"
+                            from="${OUTPUT_PATH}.exe"
+                            perm="755"
+                            owner="root"
+                            group="bin"/>
+          <packFileListElem type="File"
+                            to="${PACKAGE_TOP_DIR}libFLAC-8.dll"
+                            from="../lib/win32/libFLAC-8.dll"
+                            perm="755"
+                            owner="root"
+                            group="bin"/>
+          <packFileListElem type="File"
+                            to="${PACKAGE_TOP_DIR}libjpeg-9.dll"
+                            from="../lib/win32/libjpeg-9.dll"
+                            perm="755"
+                            owner="root"
+                            group="bin"/>
+          <packFileListElem type="File"
+                            to="${PACKAGE_TOP_DIR}libogg-0.dll"
+                            from="../lib/win32/libogg-0.dll"
+                            perm="755"
+                            owner="root"
+                            group="bin"/>
+          <packFileListElem type="File"
+                            to="${PACKAGE_TOP_DIR}libpng16-16.dll"
+                            from="../lib/win32/libpng16-16.dll"
+                            perm="755"
+                            owner="root"
+                            group="bin"/>
+          <packFileListElem type="File"
+                            to="${PACKAGE_TOP_DIR}libvorbis-0.dll"
+                            from="../lib/win32/libvorbis-0.dll"
+                            perm="755"
+                            owner="root"
+                            group="bin"/>
+          <packFileListElem type="File"
+                            to="${PACKAGE_TOP_DIR}libvorbisfile-3.dll"
+                            from="../lib/win32/libvorbisfile-3.dll"
+                            perm="755"
+                            owner="root"
+                            group="bin"/>
+          <packFileListElem type="File"
+                            to="${PACKAGE_TOP_DIR}zlib1.dll"
+                            from="../lib/win32/zlib1.dll"
+                            perm="755"
+                            owner="root"
+                            group="bin"/>
+          <packFileListElem type="File"
+                            to="${PACKAGE_TOP_DIR}resources-pkg/font.zip"
+                            from="../resources-pkg/font.zip"
+                            perm="644"
+                            owner="root"
+                            group="bin"/>
+          <packFileListElem type="File"
+                            to="${PACKAGE_TOP_DIR}resources-pkg/l10n.zip"
+                            from="../resources-pkg/l10n.zip"
+                            perm="644"
+                            owner="root"
+                            group="bin"/>
+          <packFileListElem type="File"
+                            to="${PACKAGE_TOP_DIR}resources-pkg/music.zip"
+                            from="../resources-pkg/music.zip"
+                            perm="644"
+                            owner="root"
+                            group="bin"/>
+          <packFileListElem type="File"
+                            to="${PACKAGE_TOP_DIR}resources-pkg/sound.zip"
+                            from="../resources-pkg/sound.zip"
+                            perm="644"
+                            owner="root"
+                            group="bin"/>
+          <packFileListElem type="File"
+                            to="${PACKAGE_TOP_DIR}resources-pkg/sprite.zip"
+                            from="../resources-pkg/sprite.zip"
+                            perm="644"
+                            owner="root"
+                            group="bin"/>
+        </packFileList>
+      </packaging>
+      <item path="../src-k2/k2_error.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../src-k2/k2_error.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src-k2/k2_hash.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src-k2/k2_ivec2.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src-k2/k2_ivec3.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src-k2/k2_ivec4.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src-k2/k2_l10n.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../src-k2/k2_l10n.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src-k2/k2_log.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../src-k2/k2_log.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src-k2/k2_math.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src-k2/k2_physfs.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../src-k2/k2_physfs.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src-k2/k2_platform.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src-k2/k2_random.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../src-k2/k2_random.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src-k2/k2_vec2.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src-lib/GL3/gl3.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src-lib/GL3/gl3w.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../src-lib/GL3/gl3w.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src-lib/SOIL.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src-lib/cJSON/cJSON.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../src-lib/cJSON/cJSON.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src-lib/image_DXT.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src-lib/image_helper.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src-lib/physfs/physfs.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src-lib/physfs/physfs_casefolding.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="../src-lib/physfs/physfs_internal.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="../src-lib/physfs/physfs_miniz.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src-lib/physfs/physfs_platforms.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="../src-lib/soil-20080707/src/SOIL.c"
+            ex="false"
+            tool="0"
+            flavor2="0">
+      </item>
+      <item path="../src-lib/soil-20080707/src/image_DXT.c"
+            ex="false"
+            tool="0"
+            flavor2="0">
+      </item>
+      <item path="../src-lib/soil-20080707/src/image_helper.c"
+            ex="false"
+            tool="0"
+            flavor2="0">
+      </item>
+      <item path="../src-lib/soil-20080707/src/stb_image_aug.c"
+            ex="false"
+            tool="0"
+            flavor2="0">
+      </item>
+      <item path="../src-lib/stb_image_aug.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src-lib/stbi_DDS_aug.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src-lib/stbi_DDS_aug_c.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src-lib/utarray.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src-lib/uthash.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src-lib/utlist.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src-lib/utstring.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/_main.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../src/app.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../src/app.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/audio.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../src/audio.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/config.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../src/config.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/core.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../src/core.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/create_level.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../src/create_level.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/display.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../src/display.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/event.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../src/event.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/game.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../src/game.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/keyboard.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../src/keyboard.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/physfsrwops.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../src/physfsrwops.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/process.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../src/process.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/processes.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../src/processes.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/score.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../src/score.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/sdl.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/sprites.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../src/sprites.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/thing.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../src/thing.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/timer.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../src/timer.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/timer_blit.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../src/timer_blit.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/util.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../src/util.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/view.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../src/view.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/view_building.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../src/view_building.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/view_fade.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../src/view_fade.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/view_score.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../src/view_score.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/view_title.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../src/view_title.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/views/view_pause.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../src/views/view_pause.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/window.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../src/window.h" ex="false" tool="3" flavor2="0">
+      </item>
+    </conf>
+    <conf name="Release" type="1">
+      <toolsSet>
+        <remote-sources-mode>LOCAL_SOURCES</remote-sources-mode>
+        <compilerSet>default</compilerSet>
+      </toolsSet>
+      <compileType>
+        <cTool>
+          <developmentMode>5</developmentMode>
+        </cTool>
+        <ccTool>
+          <developmentMode>5</developmentMode>
+        </ccTool>
+        <fortranCompilerTool>
+          <developmentMode>5</developmentMode>
+        </fortranCompilerTool>
+        <asmTool>
+          <developmentMode>5</developmentMode>
+        </asmTool>
+      </compileType>
+      <item path="../src-k2/k2_error.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../src-k2/k2_error.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src-k2/k2_hash.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src-k2/k2_ivec2.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src-k2/k2_ivec3.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src-k2/k2_ivec4.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src-k2/k2_l10n.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../src-k2/k2_l10n.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src-k2/k2_log.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../src-k2/k2_log.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src-k2/k2_math.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src-k2/k2_physfs.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../src-k2/k2_physfs.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src-k2/k2_platform.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src-k2/k2_random.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../src-k2/k2_random.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src-k2/k2_vec2.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src-lib/GL3/gl3.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src-lib/GL3/gl3w.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../src-lib/GL3/gl3w.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src-lib/SOIL.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src-lib/cJSON/cJSON.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../src-lib/cJSON/cJSON.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src-lib/image_DXT.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src-lib/image_helper.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src-lib/physfs/physfs.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src-lib/physfs/physfs_casefolding.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="../src-lib/physfs/physfs_internal.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="../src-lib/physfs/physfs_miniz.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src-lib/physfs/physfs_platforms.h"
+            ex="false"
+            tool="3"
+            flavor2="0">
+      </item>
+      <item path="../src-lib/soil-20080707/src/SOIL.c"
+            ex="false"
+            tool="0"
+            flavor2="0">
+      </item>
+      <item path="../src-lib/soil-20080707/src/image_DXT.c"
+            ex="false"
+            tool="0"
+            flavor2="0">
+      </item>
+      <item path="../src-lib/soil-20080707/src/image_helper.c"
+            ex="false"
+            tool="0"
+            flavor2="0">
+      </item>
+      <item path="../src-lib/soil-20080707/src/stb_image_aug.c"
+            ex="false"
+            tool="0"
+            flavor2="0">
+      </item>
+      <item path="../src-lib/stb_image_aug.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src-lib/stbi_DDS_aug.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src-lib/stbi_DDS_aug_c.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src-lib/utarray.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src-lib/uthash.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src-lib/utlist.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src-lib/utstring.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/_main.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../src/app.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../src/app.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/audio.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../src/audio.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/config.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../src/config.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/core.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../src/core.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/create_level.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../src/create_level.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/display.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../src/display.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/event.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../src/event.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/game.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../src/game.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/keyboard.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../src/keyboard.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/physfsrwops.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../src/physfsrwops.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/process.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../src/process.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/processes.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../src/processes.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/score.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../src/score.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/sdl.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/sprites.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../src/sprites.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/thing.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../src/thing.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/timer.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../src/timer.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/timer_blit.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../src/timer_blit.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/util.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../src/util.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/view.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../src/view.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/view_building.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../src/view_building.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/view_fade.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../src/view_fade.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/view_score.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../src/view_score.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/view_title.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../src/view_title.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/views/view_pause.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../src/views/view_pause.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../src/window.c" ex="false" tool="0" flavor2="0">
+      </item>
+      <item path="../src/window.h" ex="false" tool="3" flavor2="0">
+      </item>
+    </conf>
+  </confs>
+</configurationDescriptor>

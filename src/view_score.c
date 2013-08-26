@@ -11,6 +11,7 @@
 #include "score.h"
 #include "app.h"
 #include "timer_blit.h"
+#include <stdio.h>
 
 #define TXSMALL	8
 #define TSMALL	10

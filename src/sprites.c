@@ -8,8 +8,9 @@
 
 #include "sprites.h"
 #include "util.h"
-
+#include "sdl.h"
 #include <stdarg.h>
+#include <string.h>
 
 sprite_t building_sheet;
 sprite_t score_sheet;

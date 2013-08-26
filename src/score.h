@@ -9,6 +9,8 @@
 #ifndef K2_score_h
 #define K2_score_h
 
+#include "k2_platform.h"
+
 typedef enum {
 	ach_every_cat,
 	ach_no_cat,

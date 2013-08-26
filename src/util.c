@@ -24,8 +24,9 @@ void util_sprite_from_surf(sprite_t *sprite, size_t index, SDL_Surface *surface)
 }
 
 SDL_Texture *util_create_texture(const char *file, SDL_Rect *rect_out) {
-	SDL_Surface *surface = IMG_Load_RW(PHYSFSRWOPS_openRead(file), true);
-	if (! surface) k2_abort("err_texture", file);
+    SDL_RWops *ops = PHYSFSRWOPS_openRead(file);
+	SDL_Surface *surface = IMG_Load_RW(ops, true);
+	if (! surface) k2_abort("err_texture", SDL_GetError());
 	*rect_out = (SDL_Rect) { 0, 0, surface->w, surface->h };
 	SDL_Texture *texture = SDL_CreateTextureFromSurface(display.renderer, surface);
 	SDL_FreeSurface(surface);

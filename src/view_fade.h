@@ -10,6 +10,7 @@
 #define K2_view_fade_h
 
 #include "view.h"
+#include "sdl.h"
 
 extern view_t view_fade;
 

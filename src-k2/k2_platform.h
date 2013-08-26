@@ -50,4 +50,15 @@
 #	define K2_PLATFORM_POSIX
 #endif
 
+#include <stdint.h>
+#include <stddef.h>
+#include <stdbool.h>
+
+#ifdef K2_PLATFORM_WINDOWS
+#   include <limits.h>
+#   ifndef SIZE_T_MAX
+#       define SIZE_T_MAX SIZE_MAX
+#   endif
+#endif
+
 #endif

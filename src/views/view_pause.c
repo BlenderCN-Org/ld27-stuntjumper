@@ -8,8 +8,7 @@
 
 #include "view_pause.h"
 
-#include <SDL2_ttf/SDL_ttf.h>
-
+#include "sdl.h"
 #include "app.h"
 #include "k2_log.h"
 

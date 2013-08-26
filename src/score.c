@@ -10,6 +10,7 @@
 #include "app.h"
 #include "k2_log.h"
 #include "k2_error.h"
+#include <string.h>
 
 #define SCORE_VERSION 1
 

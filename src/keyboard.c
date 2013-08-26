@@ -8,6 +8,7 @@
 
 #include "keyboard.h"
 #include "app.h"
+#include <string.h>
 
 static bool keys[SDL_NUM_SCANCODES];
 event_handler_t keydown_listener, keyup_listener;

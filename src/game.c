@@ -14,6 +14,7 @@
 #include "view_score.h"
 #include "sprites.h"
 #include "processes.h"
+#include <string.h>
 
 game_t game;
 

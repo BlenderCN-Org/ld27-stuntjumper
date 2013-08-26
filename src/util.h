@@ -10,6 +10,7 @@
 #define K2_util_h
 
 #include <SDL2/SDL.h>
+#include <stdlib.h>
 #include "k2_platform.h"
 #include "sprites.h"
 

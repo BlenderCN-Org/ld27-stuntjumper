@@ -11,6 +11,7 @@
 
 #include "k2_ivec2.h"
 #include "k2_vec2.h"
+#include <stddef.h>
 
 typedef enum {
 	

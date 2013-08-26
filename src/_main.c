@@ -6,12 +6,9 @@
 //  Copyright (c) 2013 Informi Software Inc. All rights reserved.
 //
 
-#include <SDL2/SDL.h>
-#include <SDL2_image/SDL_image.h>
-#include <SDL2_mixer/SDL_mixer.h>
-#include <SDL2_ttf/SDL_ttf.h>
 #include <physfs/physfs.h>
 #include <cJSON/cJSON.h>
+#include "sdl.h"
 
 #include "k2_log.h"
 #include "k2_physfs.h"
@@ -32,7 +29,11 @@ int main(int argc, char *argv[])
 	display.window = NULL;
 	atexit(quit);
 	
+#if defined(K2_PLATFORM_WINDOWS)
+    PHYSFS_init(NULL);
+#else
 	PHYSFS_init(argv[0]);
+#endif
 	if (! k2_physfs_set_sane_config(app.name, "zip", false))
 		k2_abort("Couldn't initialize file system");	
 	

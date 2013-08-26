@@ -10,6 +10,7 @@
 #include "physfsrwops.h"
 #include "k2_error.h"
 #include "k2_log.h"
+#include <string.h>
 
 #define RATE		MIX_DEFAULT_FREQUENCY
 #define FORMAT		MIX_DEFAULT_FORMAT

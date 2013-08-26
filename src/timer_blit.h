@@ -9,6 +9,8 @@
 #ifndef K2_timer_blit_h
 #define K2_timer_blit_h
 
+#include <stdint.h>
+
 void timer_blit_init(void);
 void timer_blit(uint32_t ticks, int right, int y);
 void timer_blit_destroy(void);

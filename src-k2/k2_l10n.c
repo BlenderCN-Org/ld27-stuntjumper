@@ -63,7 +63,7 @@ void k2_l10n_init(k2_l10n_t *self, const char *l10n) {
 	char **localization_files = PHYSFS_enumerateFiles("l10n");
 	for (char **i = localization_files; *i; ++i) {
 		char pathname[PATH_MAX];
-		snprintf(pathname, PATH_MAX, "l10n%s%s", PHYSFS_getDirSeparator(), *i);
+		snprintf(pathname, PATH_MAX, "l10n/%s", *i);
 		parse_l10n_file(pathname, l10n);
 	}
 	PHYSFS_freeList(localization_files);

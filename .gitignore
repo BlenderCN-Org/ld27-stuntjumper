@@ -1,5 +1,6 @@
 # Object files
 *.o
+*.o.d
 
 # Executables
 *.exe
@@ -19,3 +20,5 @@ K2/K2.xcodeproj/xcuserdata/*
 # OS X
 */.DS_Store
 
+# netbeans
+k2-win/dist/

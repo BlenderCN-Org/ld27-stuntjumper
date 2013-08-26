@@ -11,6 +11,7 @@
 
 #include "thing.h"
 #include "score.h"
+#include "sdl.h"
 
 #define MAX_FRAMES 8
 

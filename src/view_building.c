@@ -11,6 +11,7 @@
 #include "sprites.h"
 #include "k2_log.h"
 #include "timer_blit.h"
+#include <string.h>
 
 #define SUNSET_SPEED 0.01f
 

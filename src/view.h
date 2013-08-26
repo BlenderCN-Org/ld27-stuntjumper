@@ -9,6 +9,8 @@
 #ifndef K2_view_h
 #define K2_view_h
 
+#include <stdbool.h>
+
 typedef void (view_activate_func)(void);
 typedef void (view_deactivate_func)(void);
 typedef void (view_update_func)(void);
