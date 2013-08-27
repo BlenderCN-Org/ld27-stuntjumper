@@ -26,7 +26,14 @@
 		D0D6406117C9846500ACB7BF /* keyboard.c in Sources */ = {isa = PBXBuildFile; fileRef = D0D6405F17C9846500ACB7BF /* keyboard.c */; };
 		D0D6406417CA47D000ACB7BF /* score.c in Sources */ = {isa = PBXBuildFile; fileRef = D0D6406217CA47D000ACB7BF /* score.c */; };
 		D0D6406717CA4FD900ACB7BF /* timer_blit.c in Sources */ = {isa = PBXBuildFile; fileRef = D0D6406517CA4FD800ACB7BF /* timer_blit.c */; };
-		D0EBB28717C7E40F00475459 /* SDL2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0EBB28617C7E40F00475459 /* SDL2.framework */; };
+		D0DE65D517CCF98B00B3F310 /* SDL2_image.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0DE65CD17CCF97E00B3F310 /* SDL2_image.framework */; };
+		D0DE65D617CCF98B00B3F310 /* SDL2_mixer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0DE65CE17CCF97E00B3F310 /* SDL2_mixer.framework */; };
+		D0DE65D717CCF98B00B3F310 /* SDL2_ttf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0DE65CF17CCF97E00B3F310 /* SDL2_ttf.framework */; };
+		D0DE65D817CCF98B00B3F310 /* SDL2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0DE65D017CCF97E00B3F310 /* SDL2.framework */; };
+		D0DE65DA17CCFBC700B3F310 /* SDL2_image.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = D0DE65CD17CCF97E00B3F310 /* SDL2_image.framework */; };
+		D0DE65DB17CCFBC700B3F310 /* SDL2_mixer.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = D0DE65CE17CCF97E00B3F310 /* SDL2_mixer.framework */; };
+		D0DE65DC17CCFBC700B3F310 /* SDL2_ttf.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = D0DE65CF17CCF97E00B3F310 /* SDL2_ttf.framework */; };
+		D0DE65DD17CCFBC700B3F310 /* SDL2.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = D0DE65D017CCF97E00B3F310 /* SDL2.framework */; };
 		D0FFB16D17C6DD0B0035714F /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0FFB16C17C6DD0B0035714F /* Cocoa.framework */; };
 		D0FFB17717C6DD0B0035714F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D0FFB17517C6DD0B0035714F /* InfoPlist.strings */; };
 		D0FFB17D17C6DD0B0035714F /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = D0FFB17B17C6DD0B0035714F /* Credits.rtf */; };
@@ -49,16 +56,10 @@
 		D0FFB23417C7C3E40035714F /* display.c in Sources */ = {isa = PBXBuildFile; fileRef = D0FFB23317C7C3E30035714F /* display.c */; };
 		D0FFB23717C7CE2D0035714F /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0FFB20417C700B70035714F /* OpenGL.framework */; };
 		D0FFB23817C7CE2D0035714F /* IOKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0FFB1D817C6F84A0035714F /* IOKit.framework */; };
-		D0FFB23F17C7CE4F0035714F /* SDL2_image.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0FFB23917C7CE420035714F /* SDL2_image.framework */; };
-		D0FFB24017C7CE4F0035714F /* SDL2_mixer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0FFB23A17C7CE420035714F /* SDL2_mixer.framework */; };
-		D0FFB24117C7CE4F0035714F /* SDL2_ttf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D0FFB23B17C7CE430035714F /* SDL2_ttf.framework */; };
 		D0FFB24417C7CE9B0035714F /* audio.c in Sources */ = {isa = PBXBuildFile; fileRef = D0FFB24317C7CE9B0035714F /* audio.c */; };
 		D0FFB24617C7D1DD0035714F /* physfsrwops.c in Sources */ = {isa = PBXBuildFile; fileRef = D0FFB24517C7D1DD0035714F /* physfsrwops.c */; };
 		D0FFB24917C7D3B90035714F /* app.c in Sources */ = {isa = PBXBuildFile; fileRef = D0FFB24817C7D3B90035714F /* app.c */; };
 		D0FFB24B17C7DA840035714F /* libphysfs.a in CopyFiles */ = {isa = PBXBuildFile; fileRef = D0FFB1D617C6F83E0035714F /* libphysfs.a */; };
-		D0FFB24C17C7DA840035714F /* SDL2_image.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = D0FFB23917C7CE420035714F /* SDL2_image.framework */; };
-		D0FFB24D17C7DA840035714F /* SDL2_mixer.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = D0FFB23A17C7CE420035714F /* SDL2_mixer.framework */; };
-		D0FFB24E17C7DA840035714F /* SDL2_ttf.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = D0FFB23B17C7CE430035714F /* SDL2_ttf.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -69,9 +70,10 @@
 			dstSubfolderSpec = 10;
 			files = (
 				D0FFB24B17C7DA840035714F /* libphysfs.a in CopyFiles */,
-				D0FFB24C17C7DA840035714F /* SDL2_image.framework in CopyFiles */,
-				D0FFB24D17C7DA840035714F /* SDL2_mixer.framework in CopyFiles */,
-				D0FFB24E17C7DA840035714F /* SDL2_ttf.framework in CopyFiles */,
+				D0DE65DA17CCFBC700B3F310 /* SDL2_image.framework in CopyFiles */,
+				D0DE65DB17CCFBC700B3F310 /* SDL2_mixer.framework in CopyFiles */,
+				D0DE65DC17CCFBC700B3F310 /* SDL2_ttf.framework in CopyFiles */,
+				D0DE65DD17CCFBC700B3F310 /* SDL2.framework in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -116,8 +118,12 @@
 		D0D6406317CA47D000ACB7BF /* score.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = score.h; sourceTree = "<group>"; };
 		D0D6406517CA4FD800ACB7BF /* timer_blit.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = timer_blit.c; sourceTree = "<group>"; };
 		D0D6406617CA4FD800ACB7BF /* timer_blit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = timer_blit.h; sourceTree = "<group>"; };
-		D0EBB28617C7E40F00475459 /* SDL2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2.framework; path = ../../../../../../../Library/Frameworks/SDL2.framework; sourceTree = "<group>"; };
-		D0FFB16917C6DD0B0035714F /* K2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = K2.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D0DE65CC17CCF6FF00B3F310 /* sdl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sdl.h; sourceTree = "<group>"; };
+		D0DE65CD17CCF97E00B3F310 /* SDL2_image.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2_image.framework; path = ../lib/osx/SDL2_image.framework; sourceTree = "<group>"; };
+		D0DE65CE17CCF97E00B3F310 /* SDL2_mixer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2_mixer.framework; path = ../lib/osx/SDL2_mixer.framework; sourceTree = "<group>"; };
+		D0DE65CF17CCF97E00B3F310 /* SDL2_ttf.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2_ttf.framework; path = ../lib/osx/SDL2_ttf.framework; sourceTree = "<group>"; };
+		D0DE65D017CCF97E00B3F310 /* SDL2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2.framework; path = ../lib/osx/SDL2.framework; sourceTree = "<group>"; };
+		D0FFB16917C6DD0B0035714F /* StuntJumper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StuntJumper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0FFB16C17C6DD0B0035714F /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		D0FFB16F17C6DD0B0035714F /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		D0FFB17017C6DD0B0035714F /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
@@ -201,9 +207,6 @@
 		D0FFB22F17C7C3D50035714F /* game.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = game.c; sourceTree = "<group>"; };
 		D0FFB23117C7C3DC0035714F /* view.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = view.c; sourceTree = "<group>"; };
 		D0FFB23317C7C3E30035714F /* display.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = display.c; sourceTree = "<group>"; };
-		D0FFB23917C7CE420035714F /* SDL2_image.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2_image.framework; path = /Library/Frameworks/SDL2_image.framework; sourceTree = "<absolute>"; };
-		D0FFB23A17C7CE420035714F /* SDL2_mixer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2_mixer.framework; path = /Library/Frameworks/SDL2_mixer.framework; sourceTree = "<absolute>"; };
-		D0FFB23B17C7CE430035714F /* SDL2_ttf.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2_ttf.framework; path = /Library/Frameworks/SDL2_ttf.framework; sourceTree = "<absolute>"; };
 		D0FFB24217C7CE940035714F /* audio.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = audio.h; sourceTree = "<group>"; };
 		D0FFB24317C7CE9B0035714F /* audio.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = audio.c; sourceTree = "<group>"; };
 		D0FFB24517C7D1DD0035714F /* physfsrwops.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = physfsrwops.c; sourceTree = "<group>"; };
@@ -216,14 +219,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0DE65D517CCF98B00B3F310 /* SDL2_image.framework in Frameworks */,
+				D0DE65D617CCF98B00B3F310 /* SDL2_mixer.framework in Frameworks */,
+				D0DE65D717CCF98B00B3F310 /* SDL2_ttf.framework in Frameworks */,
+				D0DE65D817CCF98B00B3F310 /* SDL2.framework in Frameworks */,
 				D0FFB1D717C6F83E0035714F /* libphysfs.a in Frameworks */,
-				D0FFB23F17C7CE4F0035714F /* SDL2_image.framework in Frameworks */,
-				D0FFB24017C7CE4F0035714F /* SDL2_mixer.framework in Frameworks */,
-				D0FFB24117C7CE4F0035714F /* SDL2_ttf.framework in Frameworks */,
 				D0FFB23717C7CE2D0035714F /* OpenGL.framework in Frameworks */,
 				D0FFB23817C7CE2D0035714F /* IOKit.framework in Frameworks */,
 				D0FFB16D17C6DD0B0035714F /* Cocoa.framework in Frameworks */,
-				D0EBB28717C7E40F00475459 /* SDL2.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -248,7 +251,7 @@
 		D0FFB16A17C6DD0B0035714F /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				D0FFB16917C6DD0B0035714F /* K2.app */,
+				D0FFB16917C6DD0B0035714F /* StuntJumper.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -256,6 +259,10 @@
 		D0FFB16B17C6DD0B0035714F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				D0DE65CD17CCF97E00B3F310 /* SDL2_image.framework */,
+				D0DE65CE17CCF97E00B3F310 /* SDL2_mixer.framework */,
+				D0DE65CF17CCF97E00B3F310 /* SDL2_ttf.framework */,
+				D0DE65D017CCF97E00B3F310 /* SDL2.framework */,
 				D0FFB16F17C6DD0B0035714F /* AppKit.framework */,
 				D0FFB17017C6DD0B0035714F /* CoreData.framework */,
 				D0FFB17117C6DD0B0035714F /* Foundation.framework */,
@@ -263,10 +270,6 @@
 				D0FFB1D817C6F84A0035714F /* IOKit.framework */,
 				D0FFB1D617C6F83E0035714F /* libphysfs.a */,
 				D0FFB20417C700B70035714F /* OpenGL.framework */,
-				D0EBB28617C7E40F00475459 /* SDL2.framework */,
-				D0FFB23917C7CE420035714F /* SDL2_image.framework */,
-				D0FFB23A17C7CE420035714F /* SDL2_mixer.framework */,
-				D0FFB23B17C7CE430035714F /* SDL2_ttf.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -294,6 +297,7 @@
 		D0FFB18B17C6DE5A0035714F /* src */ = {
 			isa = PBXGroup;
 			children = (
+				D0DE65CC17CCF6FF00B3F310 /* sdl.h */,
 				D0FFB18C17C6DE710035714F /* _main.c */,
 				D0FFB24817C7D3B90035714F /* app.c */,
 				D0FFB1C917C6EB430035714F /* app.h */,
@@ -564,6 +568,7 @@
 			buildPhases = (
 				D0FFB19117C6E9290035714F /* ShellScript */,
 				D0FFB1C517C6E9F30035714F /* ShellScript */,
+				D0DE65D917CCF9EF00B3F310 /* ShellScript */,
 				D0FFB16517C6DD0B0035714F /* Sources */,
 				D0FFB16617C6DD0B0035714F /* Frameworks */,
 				D0FFB16717C6DD0B0035714F /* Resources */,
@@ -576,7 +581,7 @@
 			);
 			name = StuntJumper;
 			productName = K2;
-			productReference = D0FFB16917C6DD0B0035714F /* K2.app */;
+			productReference = D0FFB16917C6DD0B0035714F /* StuntJumper.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -620,6 +625,19 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		D0DE65D917CCF9EF00B3F310 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "install_name_tool -id @rpath/../Frameworks/SDL2.framework/SDL2 ../lib/osx/SDL2.framework/SDL2\ninstall_name_tool -id @rpath/../Frameworks/SDL2_image.framework/SDL2_image ../lib/osx/SDL2_image.framework/SDL2_image\ninstall_name_tool -id @rpath/../Frameworks/SDL2_mixer.framework/SDL2_mixer ../lib/osx/SDL2_mixer.framework/SDL2_mixer\ninstall_name_tool -id @rpath/../Frameworks/SDL2_ttf.framework/SDL2_ttf ../lib/osx/SDL2_ttf.framework/SDL2_ttf\n";
+		};
 		D0FFB19117C6E9290035714F /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -789,12 +807,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
-				FRAMEWORK_SEARCH_PATHS = /Library/Frameworks;
+				FRAMEWORK_SEARCH_PATHS = (
+					/Library/Frameworks,
+					"\"$(SRCROOT)/../lib/osx\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "K2/K2-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
 					"../src-lib",
 					"../src-k2",
+					../lib/common/include,
 				);
 				INFOPLIST_FILE = "K2/K2-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks";
@@ -812,12 +834,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
-				FRAMEWORK_SEARCH_PATHS = /Library/Frameworks;
+				FRAMEWORK_SEARCH_PATHS = (
+					/Library/Frameworks,
+					"\"$(SRCROOT)/../lib/osx\"",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "K2/K2-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
 					"../src-lib",
 					"../src-k2",
+					../lib/common/include,
 				);
 				INFOPLIST_FILE = "K2/K2-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks";

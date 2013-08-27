@@ -43,6 +43,8 @@ void game_start(void) {
 	process_add(process_collide);
 	process_add(process_momentum);
 	process_add(process_attached); // sync after momentum
+	
+	game.score.uiprops[rounds_played] = score_lifetime.uiprops[rounds_played];
 }
 
 thing_t *game_add_thing(thing_type_t type, thing_id_t *thing_id) {

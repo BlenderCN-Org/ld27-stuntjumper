@@ -1,4 +1,4 @@
-//
+ //
 //  processes.c
 //  K2
 //
@@ -118,8 +118,8 @@ void process_collide(void) {
 				}
 				
 				// bye bye old one
-				collide->type = nothing;
 				--game.gen_count[collide->type];
+				collide->type = nothing;
 				
 				dp->velocity.y *= 0.5;
 				
@@ -150,34 +150,48 @@ void process_collide(void) {
 
 // --------------------------------------------------------------------------
 
+static bool triggered_all(thing_type_t t) {
+	LOG_DEBUG("%u: created %u, triggered %u", t, game.gen_count[t], game.trigger_count[t]);
+	return game.gen_count[t] && (game.trigger_count[t] == game.gen_count[t]);
+}
+
+static bool triggered_all_if_exist(thing_type_t t) {
+	return (game.trigger_count[t] == game.gen_count[t]);
+}
+
+static bool triggered_none(thing_type_t t) {
+	return game.gen_count[t] && (! game.trigger_count[t]);
+}
+
+static bool is_replay = true;
 static void set_score(void) {
 	++game.score.uiprops[rounds_played];
 	
-	game.score.bprops[every_cat] = game.trigger_count[cat] == game.gen_count[cat];
-	game.score.bprops[no_cat] = game.trigger_count[cat] == 0;
-	game.score.bprops[every_satellite] = game.trigger_count[building_satellite] == game.gen_count[building_satellite];
-	game.score.bprops[no_satellite] = game.trigger_count[building_satellite] == 0;
-	game.score.bprops[every_dress] = game.trigger_count[dress] == game.gen_count[dress];
-	game.score.bprops[every_bra] = game.trigger_count[bra] == game.gen_count[bra];
-	game.score.bprops[every_jeans] = game.trigger_count[jeans] == game.gen_count[jeans];
-	game.score.bprops[every_tshirt] = game.trigger_count[tshirt] == game.gen_count[tshirt];
-	game.score.bprops[every_clothes] = (game.score.bprops[every_dress] &&
-										game.score.bprops[every_bra] &&
-										game.score.bprops[every_jeans] &&
-										game.score.bprops[every_tshirt]);
-	game.score.bprops[every_fire_escape] = game.trigger_count[fire_escape] == game.gen_count[fire_escape];
-	game.score.bprops[no_fire_escape] = game.trigger_count[fire_escape] == 0;
+	game.score.bprops[every_cat] = triggered_all(cat);
+	game.score.bprops[no_cat] = triggered_none(cat);
+	game.score.bprops[every_satellite] = triggered_all(building_satellite);
+	game.score.bprops[no_satellite] = triggered_none(building_satellite);
+	game.score.bprops[every_dress] = triggered_all(dress);
+	game.score.bprops[every_bra] = triggered_all(bra);
+	game.score.bprops[every_jeans] = triggered_all(jeans);
+	game.score.bprops[every_tshirt] = triggered_all(tshirt);
+	game.score.bprops[every_clothes] = (triggered_all(dress) &&
+										triggered_all(bra) &&
+										triggered_all(jeans) &&
+										triggered_all(tshirt));
+	game.score.bprops[every_fire_escape] = triggered_all(fire_escape);
+	game.score.bprops[no_fire_escape] = triggered_none(fire_escape);
 	game.score.bprops[first_run] = true; // will only apply first time
 	game.score.bprops[no_left_arrow] = ! game.score.bprops[no_no_left_arrow]; // easier to track if it's been pressed
 	game.score.bprops[no_no_left_arrow] = false; // but the achievement is a trick
-	game.score.bprops[everything_broken] = (game.score.bprops[every_satellite] &&
-											game.score.bprops[every_fire_escape]);
-	game.score.bprops[nothing_broken] = !(game.score.bprops[every_satellite] ||
-										  game.score.bprops[every_fire_escape] ||
-										  game.trigger_count[ladder]);
+	game.score.bprops[everything_broken] = (triggered_all(fire_escape) &&
+											triggered_all(building_satellite));
+	game.score.bprops[nothing_broken] = (triggered_none(building_satellite) &&
+										 triggered_none(fire_escape) &&
+										 triggered_none(ladder));
 	
 	uint32_t rounds = game.score.uiprops[rounds_played];
-	game.score.bprops[replay] = rounds == 2;
+	game.score.bprops[replay] = is_replay; is_replay = false;
 	game.score.bprops[rounds_5] = rounds == 5;
 	game.score.bprops[rounds_10] = rounds == 10;
 	game.score.bprops[rounds_25] = rounds == 25;

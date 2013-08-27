@@ -67,7 +67,7 @@ void score_init(void) {
 		
 		if (loaded.version == SCORE_VERSION) {
 			score_lifetime = loaded;
-			game.score.bprops[replay] = true;
+			score_lifetime.bprops[replay] = false; // give it out
 		} else {
 			LOG_WARN("Score version mismatch forces reset: got %uc", loaded.version);
 		}
@@ -75,6 +75,7 @@ void score_init(void) {
 	
 	if (! score_lifetime.version) {
 		score_init_instance(&score_lifetime);
+		score_lifetime.bprops[replay] = true; // don't give it out on first init
 	}
 	
 	// verify we can save

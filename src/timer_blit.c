@@ -49,9 +49,9 @@ void timer_blit(uint32_t ticks, int right, int y) {
 	
 	char timer_str[11];
 	uint32_t minutes = time / 60.f;
-	uint32_t tensecs = time / 10 * 10;
-	float frac = time - tensecs;
-	snprintf(timer_str, 11, "%02u:%01u%.2f", minutes, tensecs / 10, frac);
+	uint32_t tensecs = time / 10;
+	float frac = time - (10 * tensecs);
+	snprintf(timer_str, 11, "%02u:%01u%.2f", minutes, tensecs, frac);
 	size_t len = strlen(timer_str);
 	
 	timer_text.length = 0;

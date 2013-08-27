@@ -9,7 +9,7 @@
 #ifndef K2_audio_h
 #define K2_audio_h
 
-#include <SDL2/SDL_mixer.h>
+#include "sdl.h"
 
 void audio_init(void);
 void audio_destroy(void);

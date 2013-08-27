@@ -13,15 +13,16 @@
 #include <string.h>
 #include <stdlib.h>
 #include <physfs/physfs.h>
-#include <io.h>
 
 #include "k2_log.h"
 #include "k2_platform.h"
 
 #if defined(K2_PLATFORM_APPLE)
+#	include <unistd.h>
 #	include <strings.h>
 #	define strnicmp(a, b, n) strncasecmp(a, b, n)
 #elif defined(K2_PLATFORM_WINDOWS)
+#	include <io.h>
 #	define strnicmp _strnicmp
 #endif
 
@@ -63,8 +64,7 @@ int k2_physfs_set_sane_config(const char *app_name,
 {
 	const char *organization = "Informi Labs";
 	
-    char cwd_b[PATH_MAX];
-    const char *cwd = (const char *)cwd_b;
+    char cwd[PATH_MAX];
     getcwd(cwd, PATH_MAX);
     const char *basedir = PHYSFS_getBaseDir();
     
