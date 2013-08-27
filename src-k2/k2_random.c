@@ -7,6 +7,7 @@
 //
 
 #include "k2_random.h"
+#include <stdlib.h>
 
 int k2_random_int(int min, int max_inclusive) {
 	int range = max_inclusive - min + 1;

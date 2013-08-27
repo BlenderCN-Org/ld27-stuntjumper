@@ -13,6 +13,7 @@
                 <sourceRootElem>../src</sourceRootElem>
                 <sourceRootElem>../src-k2</sourceRootElem>
                 <sourceRootElem>../src-lib</sourceRootElem>
+                <sourceRootElem>../resources</sourceRootElem>
             </sourceRootList>
             <confList>
                 <confElem>

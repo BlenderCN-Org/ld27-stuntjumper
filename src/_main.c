@@ -38,9 +38,9 @@ int main(int argc, char *argv[])
 		k2_abort("Couldn't initialize file system");	
 	
 	if (SDL_Init(SDL_INIT_AUDIO | SDL_INIT_VIDEO | SDL_INIT_TIMER) == -1)
-		k2_abort("err_init", "SDL");
-	if (TTF_Init() == -1) k2_abort("err_init", "TTF");
-	if (IMG_Init(IMG_INIT_PNG) == -1) k2_abort("err_init", "IMG");
+                k2_abort("err_init", "SDL", SDL_GetError());
+	if (TTF_Init() == -1) k2_abort("err_init", "TTF", SDL_GetError());
+	if (IMG_Init(IMG_INIT_PNG) == -1) k2_abort("err_init", "IMG", SDL_GetError());
 	
 	app_init();
 

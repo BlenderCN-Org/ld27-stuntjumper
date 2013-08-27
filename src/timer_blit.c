@@ -27,8 +27,8 @@ static struct {
 static const SDL_Color white = { 0xFF, 0xFF, 0xFF, 0xFF };
 
 void timer_blit_init(void) {
-	PHYSFS_File *pf = PHYSFS_openRead(FONT);
-    if (! pf) k2_abort("err_init", FONT);
+    PHYSFS_File *pf = PHYSFS_openRead(FONT);
+    if (! pf) k2_abort("err_resource", FONT);
 	SDL_RWops *file = PHYSFSRWOPS_makeRWops(pf);
 	TTF_Font *font = TTF_OpenFontRW(file, true, 12);
 	float widest = 0.f;

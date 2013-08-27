@@ -75,7 +75,7 @@ OBJECTFILES= \
 
 
 # C Compiler Flags
-CFLAGS=
+CFLAGS=-std=gnu99
 
 # CC Compiler Flags
 CCFLAGS=
@@ -88,7 +88,7 @@ FFLAGS=
 ASFLAGS=
 
 # Link Libraries and Options
-LDLIBSOPTIONS=
+LDLIBSOPTIONS=-L../lib/win32 -lmingw32 -lSDL2main -lSDL2_mixer -lSDL2_image -lSDL2_ttf -lSDL2 -lopengl32 -lfreetype -lwinmm -lgdi32 -luser32 -lphysfs -lole32 -loleaut32 -lversion -limm32
 
 # Build Targets
 .build-conf: ${BUILD_SUBPROJECTS}
@@ -96,192 +96,192 @@ LDLIBSOPTIONS=
 
 ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/k2-win.exe: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
-	${LINK.c} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/k2-win ${OBJECTFILES} ${LDLIBSOPTIONS}
+	${LINK.c} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/k2-win ${OBJECTFILES} ${LDLIBSOPTIONS} -mwindows
 
 ${OBJECTDIR}/_ext/810000161/k2_error.o: ../src-k2/k2_error.c 
 	${MKDIR} -p ${OBJECTDIR}/_ext/810000161
 	${RM} $@.d
-	$(COMPILE.c) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/810000161/k2_error.o ../src-k2/k2_error.c
+	$(COMPILE.c) -O2 -I../src -I../src-k2 -I../src-lib -I../lib/common/include -std=gnu99 -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/810000161/k2_error.o ../src-k2/k2_error.c
 
 ${OBJECTDIR}/_ext/810000161/k2_l10n.o: ../src-k2/k2_l10n.c 
 	${MKDIR} -p ${OBJECTDIR}/_ext/810000161
 	${RM} $@.d
-	$(COMPILE.c) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/810000161/k2_l10n.o ../src-k2/k2_l10n.c
+	$(COMPILE.c) -O2 -I../src -I../src-k2 -I../src-lib -I../lib/common/include -std=gnu99 -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/810000161/k2_l10n.o ../src-k2/k2_l10n.c
 
 ${OBJECTDIR}/_ext/810000161/k2_log.o: ../src-k2/k2_log.c 
 	${MKDIR} -p ${OBJECTDIR}/_ext/810000161
 	${RM} $@.d
-	$(COMPILE.c) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/810000161/k2_log.o ../src-k2/k2_log.c
+	$(COMPILE.c) -O2 -I../src -I../src-k2 -I../src-lib -I../lib/common/include -std=gnu99 -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/810000161/k2_log.o ../src-k2/k2_log.c
 
 ${OBJECTDIR}/_ext/810000161/k2_physfs.o: ../src-k2/k2_physfs.c 
 	${MKDIR} -p ${OBJECTDIR}/_ext/810000161
 	${RM} $@.d
-	$(COMPILE.c) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/810000161/k2_physfs.o ../src-k2/k2_physfs.c
+	$(COMPILE.c) -O2 -I../src -I../src-k2 -I../src-lib -I../lib/common/include -std=gnu99 -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/810000161/k2_physfs.o ../src-k2/k2_physfs.c
 
 ${OBJECTDIR}/_ext/810000161/k2_random.o: ../src-k2/k2_random.c 
 	${MKDIR} -p ${OBJECTDIR}/_ext/810000161
 	${RM} $@.d
-	$(COMPILE.c) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/810000161/k2_random.o ../src-k2/k2_random.c
+	$(COMPILE.c) -O2 -I../src -I../src-k2 -I../src-lib -I../lib/common/include -std=gnu99 -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/810000161/k2_random.o ../src-k2/k2_random.c
 
 ${OBJECTDIR}/_ext/692619436/gl3w.o: ../src-lib/GL3/gl3w.c 
 	${MKDIR} -p ${OBJECTDIR}/_ext/692619436
 	${RM} $@.d
-	$(COMPILE.c) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/692619436/gl3w.o ../src-lib/GL3/gl3w.c
+	$(COMPILE.c) -O2 -I../src -I../src-k2 -I../src-lib -I../lib/common/include -std=gnu99 -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/692619436/gl3w.o ../src-lib/GL3/gl3w.c
 
 ${OBJECTDIR}/_ext/86820599/cJSON.o: ../src-lib/cJSON/cJSON.c 
 	${MKDIR} -p ${OBJECTDIR}/_ext/86820599
 	${RM} $@.d
-	$(COMPILE.c) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/86820599/cJSON.o ../src-lib/cJSON/cJSON.c
+	$(COMPILE.c) -O2 -I../src -I../src-k2 -I../src-lib -I../lib/common/include -std=gnu99 -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/86820599/cJSON.o ../src-lib/cJSON/cJSON.c
 
 ${OBJECTDIR}/_ext/281919435/SOIL.o: ../src-lib/soil-20080707/src/SOIL.c 
 	${MKDIR} -p ${OBJECTDIR}/_ext/281919435
 	${RM} $@.d
-	$(COMPILE.c) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/281919435/SOIL.o ../src-lib/soil-20080707/src/SOIL.c
+	$(COMPILE.c) -O2 -I../src -I../src-k2 -I../src-lib -I../lib/common/include -std=gnu99 -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/281919435/SOIL.o ../src-lib/soil-20080707/src/SOIL.c
 
 ${OBJECTDIR}/_ext/281919435/image_DXT.o: ../src-lib/soil-20080707/src/image_DXT.c 
 	${MKDIR} -p ${OBJECTDIR}/_ext/281919435
 	${RM} $@.d
-	$(COMPILE.c) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/281919435/image_DXT.o ../src-lib/soil-20080707/src/image_DXT.c
+	$(COMPILE.c) -O2 -I../src -I../src-k2 -I../src-lib -I../lib/common/include -std=gnu99 -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/281919435/image_DXT.o ../src-lib/soil-20080707/src/image_DXT.c
 
 ${OBJECTDIR}/_ext/281919435/image_helper.o: ../src-lib/soil-20080707/src/image_helper.c 
 	${MKDIR} -p ${OBJECTDIR}/_ext/281919435
 	${RM} $@.d
-	$(COMPILE.c) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/281919435/image_helper.o ../src-lib/soil-20080707/src/image_helper.c
+	$(COMPILE.c) -O2 -I../src -I../src-k2 -I../src-lib -I../lib/common/include -std=gnu99 -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/281919435/image_helper.o ../src-lib/soil-20080707/src/image_helper.c
 
 ${OBJECTDIR}/_ext/281919435/stb_image_aug.o: ../src-lib/soil-20080707/src/stb_image_aug.c 
 	${MKDIR} -p ${OBJECTDIR}/_ext/281919435
 	${RM} $@.d
-	$(COMPILE.c) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/281919435/stb_image_aug.o ../src-lib/soil-20080707/src/stb_image_aug.c
+	$(COMPILE.c) -O2 -I../src -I../src-k2 -I../src-lib -I../lib/common/include -std=gnu99 -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/281919435/stb_image_aug.o ../src-lib/soil-20080707/src/stb_image_aug.c
 
 ${OBJECTDIR}/_ext/1360937237/_main.o: ../src/_main.c 
 	${MKDIR} -p ${OBJECTDIR}/_ext/1360937237
 	${RM} $@.d
-	$(COMPILE.c) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/1360937237/_main.o ../src/_main.c
+	$(COMPILE.c) -O2 -I../src -I../src-k2 -I../src-lib -I../lib/common/include -std=gnu99 -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/1360937237/_main.o ../src/_main.c
 
 ${OBJECTDIR}/_ext/1360937237/app.o: ../src/app.c 
 	${MKDIR} -p ${OBJECTDIR}/_ext/1360937237
 	${RM} $@.d
-	$(COMPILE.c) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/1360937237/app.o ../src/app.c
+	$(COMPILE.c) -O2 -I../src -I../src-k2 -I../src-lib -I../lib/common/include -std=gnu99 -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/1360937237/app.o ../src/app.c
 
 ${OBJECTDIR}/_ext/1360937237/audio.o: ../src/audio.c 
 	${MKDIR} -p ${OBJECTDIR}/_ext/1360937237
 	${RM} $@.d
-	$(COMPILE.c) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/1360937237/audio.o ../src/audio.c
+	$(COMPILE.c) -O2 -I../src -I../src-k2 -I../src-lib -I../lib/common/include -std=gnu99 -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/1360937237/audio.o ../src/audio.c
 
 ${OBJECTDIR}/_ext/1360937237/config.o: ../src/config.c 
 	${MKDIR} -p ${OBJECTDIR}/_ext/1360937237
 	${RM} $@.d
-	$(COMPILE.c) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/1360937237/config.o ../src/config.c
+	$(COMPILE.c) -O2 -I../src -I../src-k2 -I../src-lib -I../lib/common/include -std=gnu99 -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/1360937237/config.o ../src/config.c
 
 ${OBJECTDIR}/_ext/1360937237/core.o: ../src/core.c 
 	${MKDIR} -p ${OBJECTDIR}/_ext/1360937237
 	${RM} $@.d
-	$(COMPILE.c) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/1360937237/core.o ../src/core.c
+	$(COMPILE.c) -O2 -I../src -I../src-k2 -I../src-lib -I../lib/common/include -std=gnu99 -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/1360937237/core.o ../src/core.c
 
 ${OBJECTDIR}/_ext/1360937237/create_level.o: ../src/create_level.c 
 	${MKDIR} -p ${OBJECTDIR}/_ext/1360937237
 	${RM} $@.d
-	$(COMPILE.c) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/1360937237/create_level.o ../src/create_level.c
+	$(COMPILE.c) -O2 -I../src -I../src-k2 -I../src-lib -I../lib/common/include -std=gnu99 -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/1360937237/create_level.o ../src/create_level.c
 
 ${OBJECTDIR}/_ext/1360937237/display.o: ../src/display.c 
 	${MKDIR} -p ${OBJECTDIR}/_ext/1360937237
 	${RM} $@.d
-	$(COMPILE.c) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/1360937237/display.o ../src/display.c
+	$(COMPILE.c) -O2 -I../src -I../src-k2 -I../src-lib -I../lib/common/include -std=gnu99 -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/1360937237/display.o ../src/display.c
 
 ${OBJECTDIR}/_ext/1360937237/event.o: ../src/event.c 
 	${MKDIR} -p ${OBJECTDIR}/_ext/1360937237
 	${RM} $@.d
-	$(COMPILE.c) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/1360937237/event.o ../src/event.c
+	$(COMPILE.c) -O2 -I../src -I../src-k2 -I../src-lib -I../lib/common/include -std=gnu99 -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/1360937237/event.o ../src/event.c
 
 ${OBJECTDIR}/_ext/1360937237/game.o: ../src/game.c 
 	${MKDIR} -p ${OBJECTDIR}/_ext/1360937237
 	${RM} $@.d
-	$(COMPILE.c) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/1360937237/game.o ../src/game.c
+	$(COMPILE.c) -O2 -I../src -I../src-k2 -I../src-lib -I../lib/common/include -std=gnu99 -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/1360937237/game.o ../src/game.c
 
 ${OBJECTDIR}/_ext/1360937237/keyboard.o: ../src/keyboard.c 
 	${MKDIR} -p ${OBJECTDIR}/_ext/1360937237
 	${RM} $@.d
-	$(COMPILE.c) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/1360937237/keyboard.o ../src/keyboard.c
+	$(COMPILE.c) -O2 -I../src -I../src-k2 -I../src-lib -I../lib/common/include -std=gnu99 -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/1360937237/keyboard.o ../src/keyboard.c
 
 ${OBJECTDIR}/_ext/1360937237/physfsrwops.o: ../src/physfsrwops.c 
 	${MKDIR} -p ${OBJECTDIR}/_ext/1360937237
 	${RM} $@.d
-	$(COMPILE.c) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/1360937237/physfsrwops.o ../src/physfsrwops.c
+	$(COMPILE.c) -O2 -I../src -I../src-k2 -I../src-lib -I../lib/common/include -std=gnu99 -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/1360937237/physfsrwops.o ../src/physfsrwops.c
 
 ${OBJECTDIR}/_ext/1360937237/process.o: ../src/process.c 
 	${MKDIR} -p ${OBJECTDIR}/_ext/1360937237
 	${RM} $@.d
-	$(COMPILE.c) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/1360937237/process.o ../src/process.c
+	$(COMPILE.c) -O2 -I../src -I../src-k2 -I../src-lib -I../lib/common/include -std=gnu99 -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/1360937237/process.o ../src/process.c
 
 ${OBJECTDIR}/_ext/1360937237/processes.o: ../src/processes.c 
 	${MKDIR} -p ${OBJECTDIR}/_ext/1360937237
 	${RM} $@.d
-	$(COMPILE.c) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/1360937237/processes.o ../src/processes.c
+	$(COMPILE.c) -O2 -I../src -I../src-k2 -I../src-lib -I../lib/common/include -std=gnu99 -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/1360937237/processes.o ../src/processes.c
 
 ${OBJECTDIR}/_ext/1360937237/score.o: ../src/score.c 
 	${MKDIR} -p ${OBJECTDIR}/_ext/1360937237
 	${RM} $@.d
-	$(COMPILE.c) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/1360937237/score.o ../src/score.c
+	$(COMPILE.c) -O2 -I../src -I../src-k2 -I../src-lib -I../lib/common/include -std=gnu99 -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/1360937237/score.o ../src/score.c
 
 ${OBJECTDIR}/_ext/1360937237/sprites.o: ../src/sprites.c 
 	${MKDIR} -p ${OBJECTDIR}/_ext/1360937237
 	${RM} $@.d
-	$(COMPILE.c) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/1360937237/sprites.o ../src/sprites.c
+	$(COMPILE.c) -O2 -I../src -I../src-k2 -I../src-lib -I../lib/common/include -std=gnu99 -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/1360937237/sprites.o ../src/sprites.c
 
 ${OBJECTDIR}/_ext/1360937237/thing.o: ../src/thing.c 
 	${MKDIR} -p ${OBJECTDIR}/_ext/1360937237
 	${RM} $@.d
-	$(COMPILE.c) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/1360937237/thing.o ../src/thing.c
+	$(COMPILE.c) -O2 -I../src -I../src-k2 -I../src-lib -I../lib/common/include -std=gnu99 -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/1360937237/thing.o ../src/thing.c
 
 ${OBJECTDIR}/_ext/1360937237/timer.o: ../src/timer.c 
 	${MKDIR} -p ${OBJECTDIR}/_ext/1360937237
 	${RM} $@.d
-	$(COMPILE.c) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/1360937237/timer.o ../src/timer.c
+	$(COMPILE.c) -O2 -I../src -I../src-k2 -I../src-lib -I../lib/common/include -std=gnu99 -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/1360937237/timer.o ../src/timer.c
 
 ${OBJECTDIR}/_ext/1360937237/timer_blit.o: ../src/timer_blit.c 
 	${MKDIR} -p ${OBJECTDIR}/_ext/1360937237
 	${RM} $@.d
-	$(COMPILE.c) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/1360937237/timer_blit.o ../src/timer_blit.c
+	$(COMPILE.c) -O2 -I../src -I../src-k2 -I../src-lib -I../lib/common/include -std=gnu99 -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/1360937237/timer_blit.o ../src/timer_blit.c
 
 ${OBJECTDIR}/_ext/1360937237/util.o: ../src/util.c 
 	${MKDIR} -p ${OBJECTDIR}/_ext/1360937237
 	${RM} $@.d
-	$(COMPILE.c) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/1360937237/util.o ../src/util.c
+	$(COMPILE.c) -O2 -I../src -I../src-k2 -I../src-lib -I../lib/common/include -std=gnu99 -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/1360937237/util.o ../src/util.c
 
 ${OBJECTDIR}/_ext/1360937237/view.o: ../src/view.c 
 	${MKDIR} -p ${OBJECTDIR}/_ext/1360937237
 	${RM} $@.d
-	$(COMPILE.c) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/1360937237/view.o ../src/view.c
+	$(COMPILE.c) -O2 -I../src -I../src-k2 -I../src-lib -I../lib/common/include -std=gnu99 -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/1360937237/view.o ../src/view.c
 
 ${OBJECTDIR}/_ext/1360937237/view_building.o: ../src/view_building.c 
 	${MKDIR} -p ${OBJECTDIR}/_ext/1360937237
 	${RM} $@.d
-	$(COMPILE.c) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/1360937237/view_building.o ../src/view_building.c
+	$(COMPILE.c) -O2 -I../src -I../src-k2 -I../src-lib -I../lib/common/include -std=gnu99 -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/1360937237/view_building.o ../src/view_building.c
 
 ${OBJECTDIR}/_ext/1360937237/view_fade.o: ../src/view_fade.c 
 	${MKDIR} -p ${OBJECTDIR}/_ext/1360937237
 	${RM} $@.d
-	$(COMPILE.c) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/1360937237/view_fade.o ../src/view_fade.c
+	$(COMPILE.c) -O2 -I../src -I../src-k2 -I../src-lib -I../lib/common/include -std=gnu99 -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/1360937237/view_fade.o ../src/view_fade.c
 
 ${OBJECTDIR}/_ext/1360937237/view_score.o: ../src/view_score.c 
 	${MKDIR} -p ${OBJECTDIR}/_ext/1360937237
 	${RM} $@.d
-	$(COMPILE.c) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/1360937237/view_score.o ../src/view_score.c
+	$(COMPILE.c) -O2 -I../src -I../src-k2 -I../src-lib -I../lib/common/include -std=gnu99 -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/1360937237/view_score.o ../src/view_score.c
 
 ${OBJECTDIR}/_ext/1360937237/view_title.o: ../src/view_title.c 
 	${MKDIR} -p ${OBJECTDIR}/_ext/1360937237
 	${RM} $@.d
-	$(COMPILE.c) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/1360937237/view_title.o ../src/view_title.c
+	$(COMPILE.c) -O2 -I../src -I../src-k2 -I../src-lib -I../lib/common/include -std=gnu99 -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/1360937237/view_title.o ../src/view_title.c
 
 ${OBJECTDIR}/_ext/1519371020/view_pause.o: ../src/views/view_pause.c 
 	${MKDIR} -p ${OBJECTDIR}/_ext/1519371020
 	${RM} $@.d
-	$(COMPILE.c) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/1519371020/view_pause.o ../src/views/view_pause.c
+	$(COMPILE.c) -O2 -I../src -I../src-k2 -I../src-lib -I../lib/common/include -std=gnu99 -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/1519371020/view_pause.o ../src/views/view_pause.c
 
 ${OBJECTDIR}/_ext/1360937237/window.o: ../src/window.c 
 	${MKDIR} -p ${OBJECTDIR}/_ext/1360937237
 	${RM} $@.d
-	$(COMPILE.c) -O2 -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/1360937237/window.o ../src/window.c
+	$(COMPILE.c) -O2 -I../src -I../src-k2 -I../src-lib -I../lib/common/include -std=gnu99 -MMD -MP -MF $@.d -o ${OBJECTDIR}/_ext/1360937237/window.o ../src/window.c
 
 # Subprojects
 .build-subprojects:

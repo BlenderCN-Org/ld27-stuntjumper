@@ -20,8 +20,8 @@ CND_ARTIFACT_DIR_Release=dist/Release/MinGW-Windows
 CND_ARTIFACT_NAME_Release=k2-win
 CND_ARTIFACT_PATH_Release=dist/Release/MinGW-Windows/k2-win
 CND_PACKAGE_DIR_Release=dist/Release/MinGW-Windows/package
-CND_PACKAGE_NAME_Release=k2-win.tar
-CND_PACKAGE_PATH_Release=dist/Release/MinGW-Windows/package/k2-win.tar
+CND_PACKAGE_NAME_Release=k2-win.zip
+CND_PACKAGE_PATH_Release=dist/Release/MinGW-Windows/package/k2-win.zip
 #
 # include compiler specific variables
 #

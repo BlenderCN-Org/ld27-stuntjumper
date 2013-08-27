@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<configurationDescriptor version="88">
+<configurationDescriptor version="89">
   <logicalFolder name="root" displayName="root" projectFiles="true" kind="ROOT">
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
@@ -8,6 +8,26 @@
     <logicalFolder name="ResourceFiles"
                    displayName="Resource Files"
                    projectFiles="true">
+      <logicalFolder name="resources" displayName="resources" projectFiles="true">
+        <logicalFolder name="font" displayName="font" projectFiles="true">
+          <itemPath>../resources/font/Header0867.ttf</itemPath>
+        </logicalFolder>
+        <logicalFolder name="l10n" displayName="l10n" projectFiles="true">
+          <itemPath>../resources/l10n/generic.json</itemPath>
+        </logicalFolder>
+        <logicalFolder name="music" displayName="music" projectFiles="true">
+          <itemPath>../resources/music/bgm.ogg</itemPath>
+          <itemPath>../resources/music/d82a.ogg</itemPath>
+        </logicalFolder>
+        <logicalFolder name="sound" displayName="sound" projectFiles="true">
+          <itemPath>../resources/sound/ach.wav</itemPath>
+        </logicalFolder>
+        <logicalFolder name="sprite" displayName="sprite" projectFiles="true">
+          <itemPath>../resources/sprite/score.png</itemPath>
+          <itemPath>../resources/sprite/sky.png</itemPath>
+          <itemPath>../resources/sprite/sprites.png</itemPath>
+        </logicalFolder>
+      </logicalFolder>
     </logicalFolder>
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
@@ -142,13 +162,16 @@
     <Elem>../src</Elem>
     <Elem>../src-k2</Elem>
     <Elem>../src-lib</Elem>
+    <Elem>../resources</Elem>
   </sourceRootList>
   <projectmakefile>Makefile</projectmakefile>
   <confs>
     <conf name="Debug" type="1">
       <toolsSet>
         <remote-sources-mode>LOCAL_SOURCES</remote-sources-mode>
-        <compilerSet>default</compilerSet>
+        <compilerSet>MinGW|MinGW</compilerSet>
+        <dependencyChecking>true</dependencyChecking>
+        <rebuildPropChanged>false</rebuildPropChanged>
       </toolsSet>
       <compileType>
         <cTool>
@@ -156,7 +179,6 @@
             <pElem>../src</pElem>
             <pElem>../src-k2</pElem>
             <pElem>../src-lib</pElem>
-            <pElem>../lib/win32/include</pElem>
             <pElem>../lib/common/include</pElem>
           </incDir>
           <commandLine>-std=gnu99</commandLine>
@@ -270,6 +292,22 @@
                             group="bin"/>
         </packFileList>
       </packaging>
+      <item path="../resources/font/Header0867.ttf" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../resources/l10n/generic.json" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../resources/music/bgm.ogg" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../resources/music/d82a.ogg" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../resources/sound/ach.wav" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../resources/sprite/score.png" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../resources/sprite/sky.png" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../resources/sprite/sprites.png" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="../src-k2/k2_error.c" ex="false" tool="0" flavor2="0">
       </item>
       <item path="../src-k2/k2_error.h" ex="false" tool="3" flavor2="0">
@@ -481,22 +519,146 @@
     <conf name="Release" type="1">
       <toolsSet>
         <remote-sources-mode>LOCAL_SOURCES</remote-sources-mode>
-        <compilerSet>default</compilerSet>
+        <compilerSet>MinGW|MinGW</compilerSet>
+        <dependencyChecking>true</dependencyChecking>
+        <rebuildPropChanged>false</rebuildPropChanged>
       </toolsSet>
       <compileType>
         <cTool>
           <developmentMode>5</developmentMode>
+          <incDir>
+            <pElem>../src</pElem>
+            <pElem>../src-k2</pElem>
+            <pElem>../src-lib</pElem>
+            <pElem>../lib/common/include</pElem>
+          </incDir>
+          <commandLine>-std=gnu99</commandLine>
         </cTool>
-        <ccTool>
-          <developmentMode>5</developmentMode>
-        </ccTool>
-        <fortranCompilerTool>
-          <developmentMode>5</developmentMode>
-        </fortranCompilerTool>
-        <asmTool>
-          <developmentMode>5</developmentMode>
-        </asmTool>
+        <linkerTool>
+          <linkerAddLib>
+            <pElem>../lib/win32</pElem>
+          </linkerAddLib>
+          <linkerLibItems>
+            <linkerLibLibItem>mingw32</linkerLibLibItem>
+            <linkerLibLibItem>SDL2main</linkerLibLibItem>
+            <linkerLibLibItem>SDL2_mixer</linkerLibLibItem>
+            <linkerLibLibItem>SDL2_image</linkerLibLibItem>
+            <linkerLibLibItem>SDL2_ttf</linkerLibLibItem>
+            <linkerLibLibItem>SDL2</linkerLibLibItem>
+            <linkerLibLibItem>opengl32</linkerLibLibItem>
+            <linkerLibLibItem>freetype</linkerLibLibItem>
+            <linkerLibLibItem>winmm</linkerLibLibItem>
+            <linkerLibLibItem>gdi32</linkerLibLibItem>
+            <linkerLibLibItem>user32</linkerLibLibItem>
+            <linkerLibLibItem>physfs</linkerLibLibItem>
+            <linkerLibLibItem>ole32</linkerLibLibItem>
+            <linkerLibLibItem>oleaut32</linkerLibLibItem>
+            <linkerLibLibItem>version</linkerLibLibItem>
+            <linkerLibLibItem>imm32</linkerLibLibItem>
+          </linkerLibItems>
+          <commandLine>-mwindows</commandLine>
+        </linkerTool>
       </compileType>
+      <packaging>
+        <packType>Zip</packType>
+        <commandlineTool>zip</commandlineTool>
+        <packFileList>
+          <packFileListElem type="File"
+                            to="${PACKAGE_TOP_DIR}${OUTPUT_BASENAME}.exe"
+                            from="${OUTPUT_PATH}.exe"
+                            perm="755"
+                            owner="root"
+                            group="bin"/>
+          <packFileListElem type="File"
+                            to="${PACKAGE_TOP_DIR}libFLAC-8.dll"
+                            from="../lib/win32/libFLAC-8.dll"
+                            perm="755"
+                            owner="root"
+                            group="bin"/>
+          <packFileListElem type="File"
+                            to="${PACKAGE_TOP_DIR}libjpeg-9.dll"
+                            from="../lib/win32/libjpeg-9.dll"
+                            perm="755"
+                            owner="root"
+                            group="bin"/>
+          <packFileListElem type="File"
+                            to="${PACKAGE_TOP_DIR}libogg-0.dll"
+                            from="../lib/win32/libogg-0.dll"
+                            perm="755"
+                            owner="root"
+                            group="bin"/>
+          <packFileListElem type="File"
+                            to="${PACKAGE_TOP_DIR}libpng16-16.dll"
+                            from="../lib/win32/libpng16-16.dll"
+                            perm="755"
+                            owner="root"
+                            group="bin"/>
+          <packFileListElem type="File"
+                            to="${PACKAGE_TOP_DIR}libvorbis-0.dll"
+                            from="../lib/win32/libvorbis-0.dll"
+                            perm="755"
+                            owner="root"
+                            group="bin"/>
+          <packFileListElem type="File"
+                            to="${PACKAGE_TOP_DIR}libvorbisfile-3.dll"
+                            from="../lib/win32/libvorbisfile-3.dll"
+                            perm="755"
+                            owner="root"
+                            group="bin"/>
+          <packFileListElem type="File"
+                            to="${PACKAGE_TOP_DIR}zlib1.dll"
+                            from="../lib/win32/zlib1.dll"
+                            perm="755"
+                            owner="root"
+                            group="bin"/>
+          <packFileListElem type="File"
+                            to="${PACKAGE_TOP_DIR}resources-pkg/font.zip"
+                            from="../resources-pkg/font.zip"
+                            perm="644"
+                            owner="root"
+                            group="bin"/>
+          <packFileListElem type="File"
+                            to="${PACKAGE_TOP_DIR}resources-pkg/l10n.zip"
+                            from="../resources-pkg/l10n.zip"
+                            perm="644"
+                            owner="root"
+                            group="bin"/>
+          <packFileListElem type="File"
+                            to="${PACKAGE_TOP_DIR}resources-pkg/music.zip"
+                            from="../resources-pkg/music.zip"
+                            perm="644"
+                            owner="root"
+                            group="bin"/>
+          <packFileListElem type="File"
+                            to="${PACKAGE_TOP_DIR}resources-pkg/sound.zip"
+                            from="../resources-pkg/sound.zip"
+                            perm="644"
+                            owner="root"
+                            group="bin"/>
+          <packFileListElem type="File"
+                            to="${PACKAGE_TOP_DIR}resources-pkg/sprite.zip"
+                            from="../resources-pkg/sprite.zip"
+                            perm="644"
+                            owner="root"
+                            group="bin"/>
+        </packFileList>
+      </packaging>
+      <item path="../resources/font/Header0867.ttf" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../resources/l10n/generic.json" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../resources/music/bgm.ogg" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../resources/music/d82a.ogg" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../resources/sound/ach.wav" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../resources/sprite/score.png" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../resources/sprite/sky.png" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="../resources/sprite/sprites.png" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="../src-k2/k2_error.c" ex="false" tool="0" flavor2="0">
       </item>
       <item path="../src-k2/k2_error.h" ex="false" tool="3" flavor2="0">

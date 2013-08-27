@@ -54,7 +54,14 @@ CCADMIN=CCadmin
 build: .build-post
 
 .build-pre:
-# Add your pre 'build' code here...
+	# Generate zipped packages
+	$(MKDIR) -p $(CND_ARTIFACT_DIR_$(CONF))
+	SRCROOT="$(CND_BASEDIR)" ../build/scripts/package_resources.sh
+	# Copy DLLs if required
+	if [ $(CND_PLATFORM_$(CONF)) = MinGW-Windows ]; then \
+		cp -uv $(CND_BASEDIR)/../lib/win32/*.dll $(CND_ARTIFACT_DIR_$(CONF)); \
+	fi
+
 
 .build-post: .build-impl
 # Add your post 'build' code here...
@@ -64,7 +71,8 @@ build: .build-post
 clean: .clean-post
 
 .clean-pre:
-# Add your pre 'clean' code here...
+	# Nuke zipped resources
+	@rm -f $(CND_BASEDIR)/../resources-pkg/*.zip
 
 .clean-post: .clean-impl
 # Add your post 'clean' code here...

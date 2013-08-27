@@ -1,8 +1,8 @@
 {
 	"common" : {
-		"err_title"	:				"Fatal Error",
-		"err_init" :				"Could not initialize the application. (%s)",
-		"err_texture" :				"Could not load required texture. (%s)",
+		"err_title"	:               "Fatal Error",
+		"err_init" :				"Could not initialize the application. (%s %s)",
+		"err_resource" :			"Could not load a required resource. (%s %s)",
 		"err_write_save" :			"Could not open the save file for writing.",
 		"err_audio" :				"Could not open the audio mixer.",
 		
